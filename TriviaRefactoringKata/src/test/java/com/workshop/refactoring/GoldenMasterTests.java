@@ -25,10 +25,16 @@ public class GoldenMasterTests {
     }
 
     private void runMultipleGames() throws FileNotFoundException {
-        System.setOut(new PrintStream(actualPath.toFile()));
-        for (int i = 0; i < 1000; i++) {
-            final int seed = 34728 + 17 * i;
-            GameRunner.run(new Random(seed));
+        final PrintStream original = System.out;
+        try(final PrintStream out = new PrintStream(actualPath.toFile())) {
+            System.setOut(out);
+            for (int i = 0; i < 1000; i++) {
+                final int seed = 34728 + 17 * i;
+                GameRunner.run(new Random(seed));
+            }
+        }
+        finally {
+           System.setOut(original);
         }
     }
 
