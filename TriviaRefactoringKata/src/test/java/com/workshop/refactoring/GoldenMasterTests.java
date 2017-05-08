@@ -2,7 +2,7 @@ package com.workshop.refactoring;
 
 import org.junit.Test;
 
-import java.io.File;
+import java.io.IOException;
 import java.io.PrintStream;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -25,9 +25,18 @@ public class GoldenMasterTests {
             GameRunner.run(new Random(seed));
         }
 
-        final String actual = String.valueOf(Files.readAllLines(actualPath));
-        final String expected = String.valueOf(Files.readAllLines(goldenMasterPath));
+        assertThat(readOutput(), is(readGoldenMaster()));
+    }
 
-        assertThat(actual, is(expected));
+    private String readGoldenMaster() throws IOException {
+        return readContent(goldenMasterPath);
+    }
+
+    private String readOutput() throws IOException {
+        return readContent(actualPath);
+    }
+
+    private String readContent(Path path) throws IOException {
+        return String.valueOf(Files.readAllLines(path));
     }
 }
