@@ -19,7 +19,7 @@ public class GoldenMasterTests {
     private final Path goldenMasterPath = Paths.get("golden-master.txt");
 
     @Test
-    public void runGame() throws Exception {
+    public void trivia() throws Exception {
         runMultipleGames();
         assertThat(readOutput(), is(readGoldenMaster()));
     }
