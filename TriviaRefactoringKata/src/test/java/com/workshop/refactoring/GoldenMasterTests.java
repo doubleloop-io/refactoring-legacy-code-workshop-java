@@ -2,6 +2,7 @@ package com.workshop.refactoring;
 
 import org.junit.Test;
 
+import java.io.FileNotFoundException;
 import java.io.IOException;
 import java.io.PrintStream;
 import java.nio.file.Files;
@@ -19,13 +20,16 @@ public class GoldenMasterTests {
 
     @Test
     public void runGame() throws Exception {
+        runMultipleGames();
+        assertThat(readOutput(), is(readGoldenMaster()));
+    }
+
+    private void runMultipleGames() throws FileNotFoundException {
         System.setOut(new PrintStream(actualPath.toFile()));
         for (int i = 0; i < 1000; i++) {
             final int seed = 34728 + 17 * i;
             GameRunner.run(new Random(seed));
         }
-
-        assertThat(readOutput(), is(readGoldenMaster()));
     }
 
     private String readGoldenMaster() throws IOException {
