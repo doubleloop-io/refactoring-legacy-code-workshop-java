@@ -13,7 +13,7 @@ public class SpikeTests {
         File file = Paths.get("output.log").toFile();
         System.setOut(new PrintStream(file));
         for (int i = 0; i < 1; i++) {
-            final int seed = i;
+            final int seed = 34728 + 17 * i;
             GameRunner.run(new Random(seed));
         }
     }
