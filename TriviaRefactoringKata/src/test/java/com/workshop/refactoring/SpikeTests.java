@@ -12,7 +12,7 @@ public class SpikeTests {
     public void runGame() throws Exception {
         File file = Paths.get("output.log").toFile();
         System.setOut(new PrintStream(file));
-        for (int i = 0; i < 1; i++) {
+        for (int i = 0; i < 1000; i++) {
             final int seed = 34728 + 17 * i;
             GameRunner.run(new Random(seed));
         }
