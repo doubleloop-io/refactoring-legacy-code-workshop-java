@@ -35,6 +35,6 @@ public class GameRunner {
     }
 
     protected Random createRandom() {
-        return new Random(8);
+        return new Random();
     }
 }
