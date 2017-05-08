@@ -12,6 +12,8 @@ public class SpikeTests {
     public void runGame() throws Exception {
         File file = Paths.get("output.log").toFile();
         System.setOut(new PrintStream(file));
-        GameRunner.run(new Random(8));
+        for (int i = 0; i < 1; i++) {
+            GameRunner.run(new Random(8));
+        }
     }
 }
