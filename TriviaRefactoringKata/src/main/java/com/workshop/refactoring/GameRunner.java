@@ -15,8 +15,15 @@ public class GameRunner {
         aGame.add("Pat");
         aGame.add("Sue");
 
-        final int seed = parseInt(args[0]);
-        Random rand = new Random(seed);
+        Random rand;
+        if (args.length > 0)
+        {
+            final int seed = parseInt(args[0]);
+            rand = new Random(seed);
+        }
+        else{
+            rand = new Random();
+        }
 
         do {
 
