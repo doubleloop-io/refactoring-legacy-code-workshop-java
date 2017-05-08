@@ -7,8 +7,10 @@ public class GameRunner {
     private static boolean notAWinner;
 
     public static void main(String[] args) {
-        Random rand = new Random(8);
+        run(new Random(8));
+    }
 
+    private static void run(Random rand) {
         Game aGame = new Game();
 
         aGame.add("Chet");
@@ -28,6 +30,5 @@ public class GameRunner {
 
 
         } while (notAWinner);
-
     }
 }
