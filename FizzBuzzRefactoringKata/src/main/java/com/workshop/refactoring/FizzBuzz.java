@@ -10,8 +10,6 @@ public class FizzBuzz {
             return "Fizz";
         if (number % 5 == 0)
             return "Buzz";
-        if (number % 7 == 0)
-            return "Yo!";
         return Objects.toString(number);
     }
 }
