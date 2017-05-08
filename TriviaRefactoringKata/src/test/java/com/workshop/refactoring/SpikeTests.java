@@ -12,14 +12,20 @@ public class SpikeTests {
     public void runGame() throws Exception {
         File file = Paths.get("output.log").toFile();
         System.setOut(new PrintStream(file));
-        final GameRunner runner = new TestableGameRunner();
+        final GameRunner runner = new TestableGameRunner(8);
         runner.run();
     }
 
     private class TestableGameRunner extends GameRunner {
+        private final Integer seed;
+
+        public TestableGameRunner(Integer seed) {
+            this.seed = seed;
+        }
+
         @Override
         protected Random createRandom() {
-            return super.createRandom();
+            return new Random(seed);
         }
     }
 }
