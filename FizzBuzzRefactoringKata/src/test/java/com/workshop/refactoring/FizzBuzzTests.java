@@ -16,6 +16,7 @@ public class FizzBuzzTests {
     @Parameters({
             "3, Fizz", "6, Fizz",
             "5, Buzz", "10, Buzz",
+            "7, Yo!",
             "15, FizzBuzz", "30, FizzBuzz",
             "1, 1", "2, 2", "4, 4", "8, 8",
     })
