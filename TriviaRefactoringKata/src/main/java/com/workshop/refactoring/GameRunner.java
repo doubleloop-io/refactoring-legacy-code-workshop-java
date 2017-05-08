@@ -11,7 +11,7 @@ public class GameRunner {
         runner.run();
     }
 
-    private void run() {
+    public void run() {
         Game aGame = new Game();
 
         aGame.add("Chet");
