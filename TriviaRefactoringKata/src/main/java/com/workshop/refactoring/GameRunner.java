@@ -7,7 +7,7 @@ public class GameRunner {
     private static boolean notAWinner;
 
     public static void main(String[] args) {
-        run(new Random(8));
+        run(new Random());
     }
 
     public static void run(Random rand) {
