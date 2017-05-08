@@ -13,7 +13,7 @@ public class GameRunner {
         aGame.add("Pat");
         aGame.add("Sue");
 
-        Random rand = new Random();
+        Random rand = new Random(8);
 
         do {
 
