@@ -4,10 +4,15 @@ import org.junit.Test;
 
 import java.io.File;
 import java.io.PrintStream;
+import java.nio.file.Files;
 import java.nio.file.Paths;
 import java.util.Random;
 
-public class SpikeTests {
+import static org.hamcrest.MatcherAssert.assertThat;
+import static org.hamcrest.Matchers.is;
+
+public class GoldenMasterTests {
+
     @Test
     public void runGame() throws Exception {
         File file = Paths.get("output.log").toFile();
@@ -16,5 +21,10 @@ public class SpikeTests {
             final int seed = 34728 + 17 * i;
             GameRunner.run(new Random(seed));
         }
+
+        final String actual = String.valueOf(Files.readAllLines(Paths.get("output.log")));
+        final String expected = String.valueOf(Files.readAllLines(Paths.get("golden-master.txt")));
+        
+        assertThat(actual, is(expected));
     }
 }
