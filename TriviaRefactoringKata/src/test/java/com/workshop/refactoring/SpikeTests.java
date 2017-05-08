@@ -2,18 +2,15 @@ package com.workshop.refactoring;
 
 import org.junit.Test;
 
-import java.io.ByteArrayOutputStream;
+import java.io.File;
 import java.io.PrintStream;
-
-import static org.hamcrest.MatcherAssert.assertThat;
-import static org.hamcrest.Matchers.is;
+import java.nio.file.Paths;
 
 public class SpikeTests {
     @Test
     public void runGame() throws Exception {
-        ByteArrayOutputStream out = new ByteArrayOutputStream();
-        System.setOut(new PrintStream(out));
+        File file = Paths.get("output.log").toFile();
+        System.setOut(new PrintStream(file));
         GameRunner.main(null);
-        assertThat("", is(out.toString()));
     }
 }
