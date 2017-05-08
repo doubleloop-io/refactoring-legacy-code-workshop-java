@@ -16,8 +16,9 @@ public class FizzBuzzTests {
     @Parameters({
             "3, Fizz", "6, Fizz",
             "5, Buzz", "10, Buzz",
-			"7, Yo!", "14, Yo!",
+            "7, Yo!", "14, Yo!",
             "15, FizzBuzz", "30, FizzBuzz",
+            "21, FizzYo!", "35, BuzzYo!", "105, FizzBuzzYo!",
             "1, 1", "2, 2", "4, 4", "8, 8",
     })
     public void convertNumber(Integer number, String expected) throws Exception {
