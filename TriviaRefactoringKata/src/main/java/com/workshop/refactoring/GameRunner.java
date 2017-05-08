@@ -7,6 +7,10 @@ public class GameRunner {
     private static boolean notAWinner;
 
     public static void main(String[] args) {
+        run();
+    }
+
+    private static void run() {
         Game aGame = new Game();
 
         aGame.add("Chet");
@@ -27,6 +31,5 @@ public class GameRunner {
 
 
         } while (notAWinner);
-
     }
 }
