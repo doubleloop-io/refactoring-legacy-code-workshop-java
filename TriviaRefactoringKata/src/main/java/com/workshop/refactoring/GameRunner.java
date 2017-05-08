@@ -18,7 +18,7 @@ public class GameRunner {
         aGame.add("Pat");
         aGame.add("Sue");
 
-        Random rand = new Random(8);
+        Random rand = createRandom();
 
         do {
 
@@ -32,5 +32,9 @@ public class GameRunner {
 
 
         } while (notAWinner);
+    }
+
+    private Random createRandom() {
+        return new Random(8);
     }
 }
