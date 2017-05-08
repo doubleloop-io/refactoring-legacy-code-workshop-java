@@ -2,6 +2,8 @@ package com.workshop.refactoring;
 
 import java.util.Random;
 
+import static java.lang.Integer.parseInt;
+
 public class GameRunner {
 
     private static boolean notAWinner;
@@ -13,7 +15,8 @@ public class GameRunner {
         aGame.add("Pat");
         aGame.add("Sue");
 
-        Random rand = new Random(8);
+        final int seed = parseInt(args[0]);
+        Random rand = new Random(seed);
 
         do {
 
