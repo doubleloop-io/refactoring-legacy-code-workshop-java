@@ -13,7 +13,8 @@ public class SpikeTests {
         File file = Paths.get("output.log").toFile();
         System.setOut(new PrintStream(file));
         for (int i = 0; i < 1; i++) {
-            GameRunner.run(new Random(8));
+            final int seed = i;
+            GameRunner.run(new Random(seed));
         }
     }
 }
