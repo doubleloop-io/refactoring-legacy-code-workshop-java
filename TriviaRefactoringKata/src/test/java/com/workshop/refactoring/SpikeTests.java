@@ -11,7 +11,10 @@ public class SpikeTests {
     public void runGame() throws Exception {
         File file = Paths.get("output.log").toFile();
         System.setOut(new PrintStream(file));
-        final GameRunner runner = new GameRunner();
+        final GameRunner runner = new TestableGameRunner();
         runner.run();
+    }
+
+    private class TestableGameRunner extends GameRunner {
     }
 }
