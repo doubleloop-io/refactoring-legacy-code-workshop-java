@@ -7,10 +7,11 @@ public class GameRunner {
     private static boolean notAWinner;
 
     public static void main(String[] args) {
-        run();
+        final GameRunner runner = new GameRunner();
+        runner.run();
     }
 
-    private static void run() {
+    private void run() {
         Game aGame = new Game();
 
         aGame.add("Chet");
