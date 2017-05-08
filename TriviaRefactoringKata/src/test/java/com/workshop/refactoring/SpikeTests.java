@@ -5,6 +5,7 @@ import org.junit.Test;
 import java.io.File;
 import java.io.PrintStream;
 import java.nio.file.Paths;
+import java.util.Random;
 
 public class SpikeTests {
     @Test
@@ -16,5 +17,9 @@ public class SpikeTests {
     }
 
     private class TestableGameRunner extends GameRunner {
+        @Override
+        protected Random createRandom() {
+            return super.createRandom();
+        }
     }
 }

@@ -34,7 +34,7 @@ public class GameRunner {
         } while (notAWinner);
     }
 
-    private Random createRandom() {
+    protected Random createRandom() {
         return new Random(8);
     }
 }
