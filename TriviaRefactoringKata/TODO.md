@@ -8,6 +8,7 @@
 
 ## ON GAME CLASS
 - [] move category questions fields
-- [] extract logic from Game's ctor
+- [X] extract logic from Game's ctor
+- [] move fillQuestions method
 - [] move askQuestion method
 - [] move currentCategory method
