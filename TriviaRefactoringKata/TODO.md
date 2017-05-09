@@ -9,6 +9,10 @@
 ## ON GAME CLASS
 - [] move category questions fields
 - [X] extract logic from Game's ctor
+- [X] move createRockQuestion method
 - [] move fillQuestions method
 - [] move askQuestion method
 - [] move currentCategory method
+
+## ON QUESTION DECK CLASS
+- [] inline createRockQuestion?
