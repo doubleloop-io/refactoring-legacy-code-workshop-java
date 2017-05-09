@@ -12,7 +12,7 @@
 - [X] move createRockQuestion method
 - [X] move fillQuestions method
 - [] move askQuestion method
-- [] move currentCategory method
+- [X] move currentCategory method
 
 ## ON QUESTION DECK CLASS
 - [] inline createRockQuestion?
