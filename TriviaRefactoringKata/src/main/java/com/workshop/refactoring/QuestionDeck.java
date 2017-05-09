@@ -8,7 +8,7 @@ public class QuestionDeck {
     private final LinkedList sportsQuestions;
     private final LinkedList rockQuestions;
 
-    public QuestionDeck(Game game) {
+    public QuestionDeck() {
         popQuestions = new LinkedList();
         scienceQuestions = new LinkedList();
         sportsQuestions = new LinkedList();

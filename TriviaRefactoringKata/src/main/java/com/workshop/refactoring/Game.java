@@ -1,7 +1,6 @@
 package com.workshop.refactoring;
 
 import java.util.ArrayList;
-import java.util.LinkedList;
 
 public class Game {
     private final QuestionDeck questionDeck;
@@ -14,7 +13,7 @@ public class Game {
     boolean isGettingOutOfPenaltyBox;
 
     public Game() {
-        questionDeck = new QuestionDeck(this);
+        questionDeck = new QuestionDeck();
         questionDeck.fillQuestions();
     }
 
