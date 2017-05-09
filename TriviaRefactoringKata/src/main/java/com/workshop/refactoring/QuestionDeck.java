@@ -3,15 +3,12 @@ package com.workshop.refactoring;
 import java.util.LinkedList;
 
 public class QuestionDeck {
-    private final Game game;
     private final LinkedList popQuestions;
     private final LinkedList scienceQuestions;
     private final LinkedList sportsQuestions;
     private final LinkedList rockQuestions;
 
     public QuestionDeck(Game game) {
-
-        this.game = game;
         popQuestions = game.popQuestions;
         scienceQuestions = game.scienceQuestions;
         sportsQuestions = game.sportsQuestions;
