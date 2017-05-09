@@ -94,6 +94,10 @@ public class Game {
 
     private String currentCategory() {
         final int currentPlayerPlace = places[currentPlayer];
+        return currentCategory(currentPlayerPlace);
+    }
+
+    private String currentCategory(int currentPlayerPlace) {
         if (currentPlayerPlace == 0) return "Pop";
         if (currentPlayerPlace == 4) return "Pop";
         if (currentPlayerPlace == 8) return "Pop";
