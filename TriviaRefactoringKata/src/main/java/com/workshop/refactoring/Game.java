@@ -20,16 +20,7 @@ public class Game {
 
     public Game() {
         questionDeck = new QuestionDeck();
-        fillQuestions();
-    }
-
-    private void fillQuestions() {
-        for (int i = 0; i < 50; i++) {
-            popQuestions.addLast("Pop Question " + i);
-            scienceQuestions.addLast(("Science Question " + i));
-            sportsQuestions.addLast(("Sports Question " + i));
-            rockQuestions.addLast(questionDeck.createRockQuestion(i));
-        }
+        questionDeck.fillQuestions(this);
     }
 
     public boolean isPlayable() {

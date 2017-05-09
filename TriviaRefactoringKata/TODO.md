@@ -10,7 +10,7 @@
 - [] move category questions fields
 - [X] extract logic from Game's ctor
 - [X] move createRockQuestion method
-- [] move fillQuestions method
+- [X] move fillQuestions method
 - [] move askQuestion method
 - [] move currentCategory method
 
