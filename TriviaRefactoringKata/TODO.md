@@ -7,7 +7,7 @@
 - [] Switch statement (dispatch logic | behaviour)
 
 ## ON GAME CLASS
-- [] move category questions fields
+- [X] move category questions fields
 - [X] extract logic from Game's ctor
 - [X] move createRockQuestion method
 - [X] move fillQuestions method

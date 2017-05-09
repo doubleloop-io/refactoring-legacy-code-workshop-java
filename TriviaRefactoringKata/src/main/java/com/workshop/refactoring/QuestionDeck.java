@@ -9,10 +9,10 @@ public class QuestionDeck {
     private final LinkedList rockQuestions;
 
     public QuestionDeck(Game game) {
-        popQuestions = game.popQuestions;
-        scienceQuestions = game.scienceQuestions;
-        sportsQuestions = game.sportsQuestions;
-        rockQuestions = game.rockQuestions;
+        popQuestions = new LinkedList();
+        scienceQuestions = new LinkedList();
+        sportsQuestions = new LinkedList();
+        rockQuestions = new LinkedList();
     }
 
     public String createRockQuestion(int index) {
