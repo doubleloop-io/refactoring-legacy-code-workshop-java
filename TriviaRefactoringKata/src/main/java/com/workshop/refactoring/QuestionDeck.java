@@ -1,11 +1,21 @@
 package com.workshop.refactoring;
 
+import java.util.LinkedList;
+
 public class QuestionDeck {
     private final Game game;
+    private final LinkedList popQuestions;
+    private final LinkedList scienceQuestions;
+    private final LinkedList sportsQuestions;
+    private final LinkedList rockQuestions;
 
     public QuestionDeck(Game game) {
 
         this.game = game;
+        popQuestions = game.popQuestions;
+        scienceQuestions = game.scienceQuestions;
+        sportsQuestions = game.sportsQuestions;
+        rockQuestions = game.rockQuestions;
     }
 
     public String createRockQuestion(int index) {
@@ -14,10 +24,10 @@ public class QuestionDeck {
 
     void fillQuestions() {
         for (int i = 0; i < 50; i++) {
-            game.popQuestions.addLast("Pop Question " + i);
-            game.scienceQuestions.addLast(("Science Question " + i));
-            game.sportsQuestions.addLast(("Sports Question " + i));
-            game.rockQuestions.addLast(createRockQuestion(i));
+            popQuestions.addLast("Pop Question " + i);
+            scienceQuestions.addLast(("Science Question " + i));
+            sportsQuestions.addLast(("Sports Question " + i));
+            rockQuestions.addLast(createRockQuestion(i));
         }
     }
 
@@ -36,12 +46,12 @@ public class QuestionDeck {
 
     void askQuestion(String currentCategory) {
         if (currentCategory == "Pop")
-            System.out.println(game.popQuestions.removeFirst());
+            System.out.println(popQuestions.removeFirst());
         if (currentCategory == "Science")
-            System.out.println(game.scienceQuestions.removeFirst());
+            System.out.println(scienceQuestions.removeFirst());
         if (currentCategory == "Sports")
-            System.out.println(game.sportsQuestions.removeFirst());
+            System.out.println(sportsQuestions.removeFirst());
         if (currentCategory == "Rock")
-            System.out.println(game.rockQuestions.removeFirst());
+            System.out.println(rockQuestions.removeFirst());
     }
 }
