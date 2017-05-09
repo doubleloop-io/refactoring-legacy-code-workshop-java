@@ -19,7 +19,7 @@ public class Game {
     boolean isGettingOutOfPenaltyBox;
 
     public Game() {
-        questionDeck = new QuestionDeck();
+        questionDeck = new QuestionDeck(this);
         questionDeck.fillQuestions(this);
     }
 

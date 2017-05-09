@@ -1,6 +1,10 @@
 package com.workshop.refactoring;
 
 public class QuestionDeck {
+    public QuestionDeck(Game game) {
+
+    }
+
     public String createRockQuestion(int index) {
         return "Rock Question " + index;
     }
