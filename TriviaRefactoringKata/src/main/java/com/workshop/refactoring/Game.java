@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.LinkedList;
 
 public class Game {
+    private final QuestionDeck questionDeck;
     ArrayList players = new ArrayList();
     int[] places = new int[6];
     int[] purses = new int[6];
@@ -18,6 +19,7 @@ public class Game {
     boolean isGettingOutOfPenaltyBox;
 
     public Game() {
+        questionDeck = new QuestionDeck();
         fillQuestions();
     }
 
