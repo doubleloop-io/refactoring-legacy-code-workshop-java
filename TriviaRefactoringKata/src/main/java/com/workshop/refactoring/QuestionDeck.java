@@ -27,7 +27,7 @@ public class QuestionDeck {
         return "Rock";
     }
 
-    void askCategoryQuestion(String currentCategory, Game game) {
+    void askQuestion(String currentCategory, Game game) {
         if (currentCategory == "Pop")
             System.out.println(game.popQuestions.removeFirst());
         if (currentCategory == "Science")

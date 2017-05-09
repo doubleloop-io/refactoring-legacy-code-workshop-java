@@ -81,7 +81,7 @@ public class Game {
     }
 
     private void askQuestion() {
-        questionDeck.askCategoryQuestion(currentCategory(), this);
+        questionDeck.askQuestion(currentCategory(), this);
     }
 
 

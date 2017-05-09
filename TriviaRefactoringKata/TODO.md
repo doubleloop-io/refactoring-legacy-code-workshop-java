@@ -11,7 +11,7 @@
 - [X] extract logic from Game's ctor
 - [X] move createRockQuestion method
 - [X] move fillQuestions method
-- [] move askQuestion method
+- [X] move askQuestion method
 - [X] move currentCategory method
 
 ## ON QUESTION DECK CLASS
