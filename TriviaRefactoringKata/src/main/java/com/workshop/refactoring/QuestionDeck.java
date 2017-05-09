@@ -1,15 +1,18 @@
 package com.workshop.refactoring;
 
 public class QuestionDeck {
+    private final Game game;
+
     public QuestionDeck(Game game) {
 
+        this.game = game;
     }
 
     public String createRockQuestion(int index) {
         return "Rock Question " + index;
     }
 
-    void fillQuestions(Game game) {
+    void fillQuestions(Game game_) {
         for (int i = 0; i < 50; i++) {
             game.popQuestions.addLast("Pop Question " + i);
             game.scienceQuestions.addLast(("Science Question " + i));
@@ -31,7 +34,7 @@ public class QuestionDeck {
         return "Rock";
     }
 
-    void askQuestion(String currentCategory, Game game) {
+    void askQuestion(String currentCategory, Game game_) {
         if (currentCategory == "Pop")
             System.out.println(game.popQuestions.removeFirst());
         if (currentCategory == "Science")
