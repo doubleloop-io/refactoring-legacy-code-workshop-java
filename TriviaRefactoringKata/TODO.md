@@ -16,3 +16,9 @@
 
 ## ON QUESTION DECK CLASS
 - [] inline createRockQuestion?
+- [] clean fillQuestions method
+- [] clean askQuestion method
+- [] clean currentCategory method
+- [] test fillQuestions method
+- [] test askQuestion method
+- [] test currentCategory method
