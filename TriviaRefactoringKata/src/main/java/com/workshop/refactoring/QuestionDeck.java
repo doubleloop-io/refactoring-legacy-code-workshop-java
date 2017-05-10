@@ -42,7 +42,8 @@ public class QuestionDeck {
         if (currentPlayerPlace == 3) return "Rock";
         if (currentPlayerPlace == 7) return "Rock";
         if (currentPlayerPlace == 11) return "Rock";
-        return "Rock";
+
+        throw new OutOfBoardPlaceException(currentPlayerPlace);
     }
 
     Object askQuestion(String currentCategory) {
