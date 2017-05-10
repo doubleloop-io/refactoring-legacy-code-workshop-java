@@ -1,7 +1,8 @@
 # PREPARATORY REFACTORING TO HANDLE A NEW CATEGORY 
 
 ## CODE SMELLS THAT IMPACT CATEGORIES
-- [] Data clumps (fields | data)
+- [] Data clumps (categories fields | data)
+- [] Data clumps (single category w/ places fields | data)
 - [] Shotgun surgery (logic | behaviour)
 - [] Primitive obsession (single field | data)
 - [] Switch statement (dispatch logic | behaviour)

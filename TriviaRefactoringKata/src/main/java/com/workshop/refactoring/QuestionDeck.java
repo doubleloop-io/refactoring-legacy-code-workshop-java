@@ -7,22 +7,28 @@ import java.util.Objects;
 
 public class QuestionDeck {
     private final LinkedList popQuestions;
-    private final LinkedList scienceQuestions;
-    private final LinkedList sportsQuestions;
-    private final LinkedList rockQuestions;
     private final List<Integer> popPlaces;
+
+    private final LinkedList scienceQuestions;
     private final List<Integer> sciencePlaces;
+
+    private final LinkedList sportsQuestions;
     private final List<Integer> sportsPlaces;
+
+    private final LinkedList rockQuestions;
     private final List<Integer> rockPlaces;
 
     public QuestionDeck() {
         popQuestions = new LinkedList();
-        scienceQuestions = new LinkedList();
-        sportsQuestions = new LinkedList();
-        rockQuestions = new LinkedList();
         popPlaces = Arrays.asList(0, 4, 8);
+
+        scienceQuestions = new LinkedList();
         sciencePlaces = Arrays.asList(1, 5, 9);
+
+        sportsQuestions = new LinkedList();
         sportsPlaces = Arrays.asList(2, 6, 10);
+
+        rockQuestions = new LinkedList();
         rockPlaces = Arrays.asList(3, 7, 11);
     }
 
