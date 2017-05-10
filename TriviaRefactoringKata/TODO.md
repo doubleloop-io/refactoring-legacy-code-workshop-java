@@ -18,7 +18,7 @@
 - [] inline createRockQuestion?
 - [] clean fillQuestions method
 - [] clean askQuestion method
-    - [] fix string comparison
+    - [X] fix string comparison
     - [] move out System.out.println() calls
 - [] clean currentCategory method
     - [] explicit Rock places in currentCategory

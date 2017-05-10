@@ -34,16 +34,12 @@ public class QuestionDeckTests {
     }
 
     @Test
-    public void firstQuestionForPop() throws Exception {
-        final QuestionDeck deck = new QuestionDeck();
-        deck.fillQuestions();
-        final Object question = deck.askQuestion("Pop");
-        assertThat(question, is("Pop Question 0"));
-    }
-
-    @Ignore("need fix string comparison")
-    @Test
-    @Parameters({"Pop, Pop Question 0"})
+    @Parameters({
+            "Pop, Pop Question 0",
+            "Science, Science Question 0",
+            "Sports, Sports Question 0",
+            "Rock, Rock Question 0",
+    })
     public void firstQuestion(String category, Object expected) throws Exception {
         final QuestionDeck deck = new QuestionDeck();
         deck.fillQuestions();
