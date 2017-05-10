@@ -21,7 +21,7 @@
     - [X] fix string comparison
     - [] move out System.out.println() calls
 - [] clean currentCategory method
-    - [] explicit Rock places in currentCategory
+    - [X] explicit Rock places in currentCategory
 - [X] test fillQuestions method
 - [X] test askQuestion method
 - [X] test currentCategory method

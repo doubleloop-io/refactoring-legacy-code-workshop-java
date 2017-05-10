@@ -39,6 +39,9 @@ public class QuestionDeck {
         if (currentPlayerPlace == 2) return "Sports";
         if (currentPlayerPlace == 6) return "Sports";
         if (currentPlayerPlace == 10) return "Sports";
+        if (currentPlayerPlace == 3) return "Rock";
+        if (currentPlayerPlace == 7) return "Rock";
+        if (currentPlayerPlace == 11) return "Rock";
         return "Rock";
     }
 
