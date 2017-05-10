@@ -12,7 +12,7 @@ import static org.junit.Assert.assertThat;
 public class QuestionDeckTests {
 
     @Test
-    @Parameters({"0", "4"})
+    @Parameters({"0", "4", "8"})
     public void popPlaces(Integer place) throws Exception {
         final QuestionDeck deck = new QuestionDeck();
         final String category = deck.currentCategory(place);
