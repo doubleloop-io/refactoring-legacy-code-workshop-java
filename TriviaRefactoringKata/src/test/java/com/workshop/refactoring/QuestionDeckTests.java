@@ -6,9 +6,9 @@ import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
-import static org.hamcrest.Matchers.is;
-import static org.hamcrest.Matchers.nullValue;
+import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.fail;
 
 @RunWith(JUnitParamsRunner.class)
 public class QuestionDeckTests {
@@ -28,10 +28,23 @@ public class QuestionDeckTests {
 
     @Test
     @Parameters({"12", "555", "-1", "" + Integer.MAX_VALUE})
-    public void outOfBoardPlace(Integer place) throws Exception {
+    public void outOfBoardPlace_(Integer place) throws Exception {
         final QuestionDeck deck = new QuestionDeck();
         final String category = deck.currentCategory(place);
         assertThat(category, is("Rock"));
+    }
+
+    @Test
+    @Parameters({"12", "555", "-1", "" + Integer.MAX_VALUE})
+    public void outOfBoardPlace(Integer place) throws Exception {
+        final QuestionDeck deck = new QuestionDeck();
+        try {
+             deck.currentCategory(place);
+            fail("expected exception to be thrown");
+        } catch (Exception e) {
+          assertThat(e, instanceOf(OutOfBoardPlaceException.class));
+          assertThat(e.getMessage(), containsString(place.toString()));
+        }
     }
 
     @Test
