@@ -7,6 +7,7 @@ import org.junit.Test;
 import org.junit.runner.RunWith;
 
 import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.nullValue;
 import static org.junit.Assert.assertThat;
 
 @RunWith(JUnitParamsRunner.class)
@@ -45,5 +46,13 @@ public class QuestionDeckTests {
         deck.fillQuestions();
         final Object question = deck.askQuestion(category);
         assertThat(question, is(expected));
+    }
+
+    @Test
+    public void questionForUnknownCategory() throws Exception {
+        final QuestionDeck deck = new QuestionDeck();
+        deck.fillQuestions();
+        final Object question = deck.askQuestion("unknown");
+        assertThat(question, nullValue());
     }
 }
