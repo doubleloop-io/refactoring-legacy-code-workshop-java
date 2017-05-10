@@ -12,10 +12,10 @@ import static org.junit.Assert.assertThat;
 public class QuestionDeckTests {
 
     @Test
-    @Parameters({"0", "4", "8"})
-    public void popPlaces(Integer place) throws Exception {
+    @Parameters({"0,Pop", "4,Pop", "8,Pop"})
+    public void categoryForPlace(Integer place, String expected) throws Exception {
         final QuestionDeck deck = new QuestionDeck();
         final String category = deck.currentCategory(place);
-        assertThat(category, is("Pop"));
+        assertThat(category, is(expected));
     }
 }
