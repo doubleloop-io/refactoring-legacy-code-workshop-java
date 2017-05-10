@@ -19,6 +19,7 @@
 - [] clean fillQuestions method
 - [] clean askQuestion method
 - [] clean currentCategory method
+    - [] explicit Rock places in currentCategory
 - [] test fillQuestions method
 - [] test askQuestion method
 - [] test currentCategory method
