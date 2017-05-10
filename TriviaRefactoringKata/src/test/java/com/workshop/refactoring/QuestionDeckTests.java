@@ -2,6 +2,7 @@ package com.workshop.refactoring;
 
 import junitparams.JUnitParamsRunner;
 import junitparams.Parameters;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -38,5 +39,15 @@ public class QuestionDeckTests {
         deck.fillQuestions();
         final Object question = deck.askQuestion("Pop");
         assertThat(question, is("Pop Question 0"));
+    }
+
+    @Ignore("need fix string comparison")
+    @Test
+    @Parameters({"Pop, Pop Question 0"})
+    public void firstQuestion(String category, Object expected) throws Exception {
+        final QuestionDeck deck = new QuestionDeck();
+        deck.fillQuestions();
+        final Object question = deck.askQuestion(category);
+        assertThat(question, is(expected));
     }
 }
