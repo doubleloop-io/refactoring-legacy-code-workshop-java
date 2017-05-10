@@ -23,4 +23,11 @@ public class QuestionDeckTests {
         final String category = deck.currentCategory(place);
         assertThat(category, is(expected));
     }
+
+    @Test
+    public void outOfBoardPlace() throws Exception {
+        final QuestionDeck deck = new QuestionDeck();
+        final String category = deck.currentCategory(12);
+        assertThat(category, is("Rock"));
+    }
 }
