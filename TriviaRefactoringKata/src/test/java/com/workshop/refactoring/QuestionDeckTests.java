@@ -2,6 +2,7 @@ package com.workshop.refactoring;
 
 import junitparams.JUnitParamsRunner;
 import junitparams.Parameters;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -30,5 +31,13 @@ public class QuestionDeckTests {
         final QuestionDeck deck = new QuestionDeck();
         final String category = deck.currentCategory(place);
         assertThat(category, is("Rock"));
+    }
+
+   @Ignore("not ready yet") @Test
+    public void firstQuestionForPop() throws Exception {
+        final QuestionDeck deck = new QuestionDeck();
+        deck.fillQuestions();
+        deck.askQuestion("Pop");
+        // assert what??
     }
 }
