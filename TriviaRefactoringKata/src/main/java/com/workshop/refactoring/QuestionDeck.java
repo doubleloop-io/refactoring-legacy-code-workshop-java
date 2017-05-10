@@ -64,6 +64,7 @@ public class QuestionDeck {
         if (Objects.equals(currentCategory, "Rock")) questions = this.rockQuestions;
 
         if (questions != null) question = questions.removeFirst();
+        else throw new UnknownCategoryException(currentCategory);
 
         return question;
     }
