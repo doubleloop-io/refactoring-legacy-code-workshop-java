@@ -10,12 +10,20 @@ public class QuestionDeck {
     private final LinkedList scienceQuestions;
     private final LinkedList sportsQuestions;
     private final LinkedList rockQuestions;
+    private final List<Integer> popPlaces;
+    private final List<Integer> sciencePlaces;
+    private final List<Integer> sportsPlaces;
+    private final List<Integer> rockPlaces;
 
     public QuestionDeck() {
         popQuestions = new LinkedList();
         scienceQuestions = new LinkedList();
         sportsQuestions = new LinkedList();
         rockQuestions = new LinkedList();
+        popPlaces = Arrays.asList(0, 4, 8);
+        sciencePlaces = Arrays.asList(1, 5, 9);
+        sportsPlaces = Arrays.asList(2, 6, 10);
+        rockPlaces = Arrays.asList(3, 7, 11);
     }
 
     private String createQuestion(String category, int index) {
@@ -32,16 +40,9 @@ public class QuestionDeck {
     }
 
     String currentCategory(int currentPlayerPlace) {
-        final List<Integer> popPlaces = Arrays.asList(0, 4, 8);
         if (popPlaces.contains(currentPlayerPlace)) return "Pop";
-
-        final List<Integer> sciencePlaces = Arrays.asList(1, 5, 9);
         if (sciencePlaces.contains(currentPlayerPlace)) return "Science";
-
-        final List<Integer> sportsPlaces = Arrays.asList(2, 6, 10);
         if(sportsPlaces.contains(currentPlayerPlace))return "Sports";
-
-        final List<Integer> rockPlaces = Arrays.asList(3, 7, 11);
         if(rockPlaces.contains(currentPlayerPlace)) return "Rock";
 
         throw new OutOfBoardPlaceException(currentPlayerPlace);
