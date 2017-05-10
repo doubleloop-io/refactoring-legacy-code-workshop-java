@@ -56,24 +56,20 @@ public class QuestionDeck {
 
     Object askQuestion(String currentCategory) {
         Object question = null;
+        LinkedList questions = null;
         if (Objects.equals(currentCategory, "Pop")) {
-            final LinkedList questions;
             questions = this.popQuestions;
-            question = questions.removeFirst();
         }
         if (Objects.equals(currentCategory, "Science")) {
-            final LinkedList questions;
             questions = this.scienceQuestions;
-            question = questions.removeFirst();
         }
         if (Objects.equals(currentCategory, "Sports")) {
-            final LinkedList questions;
             questions = this.sportsQuestions;
-            question = questions.removeFirst();
         }
         if (Objects.equals(currentCategory, "Rock")) {
-            final LinkedList questions;
             questions = this.rockQuestions;
+        }
+        if (questions != null) {
             question = questions.removeFirst();
         }
         return question;
