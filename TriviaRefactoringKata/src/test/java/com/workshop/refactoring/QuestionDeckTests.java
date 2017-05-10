@@ -30,11 +30,11 @@ public class QuestionDeckTests {
     public void outOfBoardPlace(Integer place) throws Exception {
         final QuestionDeck deck = new QuestionDeck();
         try {
-             deck.categoryFor(place);
+            deck.categoryFor(place);
             fail("expected exception to be thrown");
         } catch (Exception e) {
-          assertThat(e, instanceOf(OutOfBoardPlaceException.class));
-          assertThat(e.getMessage(), containsString(place.toString()));
+            assertThat(e, instanceOf(OutOfBoardPlaceException.class));
+            assertThat(e.getMessage(), containsString(place.toString()));
         }
     }
 
@@ -53,11 +53,24 @@ public class QuestionDeckTests {
     }
 
     @Test
-    public void questionForUnknownCategory() throws Exception {
+    public void questionForUnknownCategory_() throws Exception {
         final QuestionDeck deck = new QuestionDeck();
         deck.fillQuestions();
         final Object question = deck.askQuestion("unknown");
         assertThat(question, nullValue());
+    }
+
+    @Test
+    public void questionForUnknownCategory() throws Exception {
+        final QuestionDeck deck = new QuestionDeck();
+        deck.fillQuestions();
+        try {
+            deck.askQuestion("boh");
+            fail("expected exception to be thrown");
+        } catch (Exception e) {
+            assertThat(e, instanceOf(UnknownCategoryException.class));
+            assertThat(e.getMessage(), containsString("boh"));
+        }
     }
 
     @Test
