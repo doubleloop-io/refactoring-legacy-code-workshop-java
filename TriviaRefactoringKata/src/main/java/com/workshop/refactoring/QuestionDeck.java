@@ -22,9 +22,9 @@ public class QuestionDeck {
 
     void fillQuestions() {
         for (int i = 0; i < 50; i++) {
-            popQuestions.addLast("Pop Question " + i);
-            scienceQuestions.addLast(("Science Question " + i));
-            sportsQuestions.addLast(("Sports Question " + i));
+            popQuestions.addLast(createQuestion("Pop", i));
+            scienceQuestions.addLast(createQuestion("Science", i));
+            sportsQuestions.addLast(createQuestion("Sports", i));
             rockQuestions.addLast(createQuestion("Rock", i));
         }
     }
