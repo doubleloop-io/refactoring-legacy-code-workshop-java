@@ -22,4 +22,4 @@
     - [] explicit Rock places in currentCategory
 - [] test fillQuestions method
 - [] test askQuestion method
-- [] test currentCategory method
+- [X] test currentCategory method

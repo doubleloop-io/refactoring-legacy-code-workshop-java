@@ -25,7 +25,7 @@ public class QuestionDeckTests {
     }
 
     @Test
-    @Parameters({"12"})
+    @Parameters({"12", "555", "-1", "" + Integer.MAX_VALUE })
     public void outOfBoardPlace(Integer place) throws Exception {
         final QuestionDeck deck = new QuestionDeck();
         final String category = deck.currentCategory(place);
