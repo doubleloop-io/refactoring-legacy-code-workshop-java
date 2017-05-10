@@ -55,4 +55,20 @@ public class QuestionDeckTests {
         final Object question = deck.askQuestion("unknown");
         assertThat(question, nullValue());
     }
+
+    @Test
+    @Parameters({
+            "Pop",
+            "Science",
+            "Sports",
+            "Rock",
+    })
+    public void askMultipleQuestionsForSameCategory(String category) throws Exception {
+        final QuestionDeck deck = new QuestionDeck();
+        deck.fillQuestions();
+        assertThat(deck.askQuestion(category), is(category + " Question 0"));
+        assertThat(deck.askQuestion(category), is(category + " Question 1"));
+        assertThat(deck.askQuestion(category), is(category + " Question 2"));
+        assertThat(deck.askQuestion(category), is(category + " Question 3"));
+    }
 }
