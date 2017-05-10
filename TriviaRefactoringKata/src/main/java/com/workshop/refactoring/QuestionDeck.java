@@ -41,22 +41,27 @@ public class QuestionDeck {
         return "Rock";
     }
 
-    void askQuestion(String currentCategory) {
+    Object askQuestion(String currentCategory) {
         if (currentCategory == "Pop") {
             final Object question = popQuestions.removeFirst();
             System.out.println(question);
+            return question;
         }
         if (currentCategory == "Science") {
             final Object question = scienceQuestions.removeFirst();
             System.out.println(question);
+            return question;
         }
         if (currentCategory == "Sports") {
             final Object question = sportsQuestions.removeFirst();
             System.out.println(question);
+            return question;
         }
         if (currentCategory == "Rock") {
             final Object question = rockQuestions.removeFirst();
             System.out.println(question);
+            return question;
         }
+        return null;
     }
 }
