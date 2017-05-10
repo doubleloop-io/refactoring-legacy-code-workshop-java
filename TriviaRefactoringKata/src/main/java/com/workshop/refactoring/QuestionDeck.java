@@ -48,33 +48,30 @@ public class QuestionDeck {
     String categoryFor(int place) {
         if (popPlaces.contains(place)) return "Pop";
         if (sciencePlaces.contains(place)) return "Science";
-        if(sportsPlaces.contains(place))return "Sports";
-        if(rockPlaces.contains(place)) return "Rock";
+        if (sportsPlaces.contains(place)) return "Sports";
+        if (rockPlaces.contains(place)) return "Rock";
 
         throw new OutOfBoardPlaceException(place);
     }
 
     Object askQuestion(String currentCategory) {
+        final Object question;
         if (Objects.equals(currentCategory, "Pop")) {
-            final Object question;
             question = popQuestions.removeFirst();
             System.out.println(question);
             return question;
         }
         if (Objects.equals(currentCategory, "Science")) {
-            final Object question;
             question = scienceQuestions.removeFirst();
             System.out.println(question);
             return question;
         }
         if (Objects.equals(currentCategory, "Sports")) {
-            final Object question;
             question = sportsQuestions.removeFirst();
             System.out.println(question);
             return question;
         }
         if (Objects.equals(currentCategory, "Rock")) {
-            final Object question;
             question = rockQuestions.removeFirst();
             System.out.println(question);
             return question;
