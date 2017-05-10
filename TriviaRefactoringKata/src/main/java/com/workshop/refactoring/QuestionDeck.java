@@ -1,6 +1,8 @@
 package com.workshop.refactoring;
 
+import java.util.Arrays;
 import java.util.LinkedList;
+import java.util.List;
 import java.util.Objects;
 
 public class QuestionDeck {
@@ -30,21 +32,17 @@ public class QuestionDeck {
     }
 
     String currentCategory(int currentPlayerPlace) {
-        if (currentPlayerPlace == 0
-            || currentPlayerPlace == 4
-            || currentPlayerPlace == 8) return "Pop";
+        final List<Integer> popPlaces = Arrays.asList(0, 4, 8);
+        if (popPlaces.contains(currentPlayerPlace)) return "Pop";
 
-        if (currentPlayerPlace == 1
-            || currentPlayerPlace == 5
-            || currentPlayerPlace == 9) return "Science";
+        final List<Integer> sciencePlaces = Arrays.asList(1, 5, 9);
+        if (sciencePlaces.contains(currentPlayerPlace)) return "Science";
 
-        if (currentPlayerPlace == 2
-            || currentPlayerPlace == 6
-            || currentPlayerPlace == 10) return "Sports";
+        final List<Integer> sportsPlaces = Arrays.asList(2, 6, 10);
+        if(sportsPlaces.contains(currentPlayerPlace))return "Sports";
 
-        if (currentPlayerPlace == 3
-            || currentPlayerPlace == 7
-            || currentPlayerPlace == 11) return "Rock";
+        final List<Integer> rockPlaces = Arrays.asList(3, 7, 11);
+        if(rockPlaces.contains(currentPlayerPlace)) return "Rock";
 
         throw new OutOfBoardPlaceException(currentPlayerPlace);
     }
