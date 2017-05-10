@@ -15,7 +15,7 @@
 - [X] move currentCategory method
 
 ## ON QUESTION DECK CLASS
-- [] inline createRockQuestion?
+- [X] inline createRockQuestion?
 - [] clean fillQuestions method
 - [] clean askQuestion method
     - [X] fix string comparison

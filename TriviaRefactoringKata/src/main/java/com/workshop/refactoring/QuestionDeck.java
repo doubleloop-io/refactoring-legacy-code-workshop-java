@@ -16,8 +16,8 @@ public class QuestionDeck {
         rockQuestions = new LinkedList();
     }
 
-    public String createRockQuestion(int index) {
-        return "Rock Question " + index;
+    private String createQuestion(String category, int index) {
+        return category + " Question " + index;
     }
 
     void fillQuestions() {
@@ -25,7 +25,7 @@ public class QuestionDeck {
             popQuestions.addLast("Pop Question " + i);
             scienceQuestions.addLast(("Science Question " + i));
             sportsQuestions.addLast(("Sports Question " + i));
-            rockQuestions.addLast(createRockQuestion(i));
+            rockQuestions.addLast(createQuestion("Rock", i));
         }
     }
 
