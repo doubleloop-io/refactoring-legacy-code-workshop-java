@@ -53,14 +53,6 @@ public class QuestionDeckTests {
     }
 
     @Test
-    public void questionForUnknownCategory_() throws Exception {
-        final QuestionDeck deck = new QuestionDeck();
-        deck.fillQuestions();
-        final Object question = deck.askQuestion("unknown");
-        assertThat(question, nullValue());
-    }
-
-    @Test
     public void questionForUnknownCategory() throws Exception {
         final QuestionDeck deck = new QuestionDeck();
         deck.fillQuestions();
