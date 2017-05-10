@@ -1,6 +1,7 @@
 package com.workshop.refactoring;
 
 import java.util.LinkedList;
+import java.util.Objects;
 
 public class QuestionDeck {
     private final LinkedList popQuestions;
@@ -42,22 +43,22 @@ public class QuestionDeck {
     }
 
     Object askQuestion(String currentCategory) {
-        if (currentCategory == "Pop") {
+        if (Objects.equals(currentCategory, "Pop")) {
             final Object question = popQuestions.removeFirst();
             System.out.println(question);
             return question;
         }
-        if (currentCategory == "Science") {
+        if (Objects.equals(currentCategory, "Science")) {
             final Object question = scienceQuestions.removeFirst();
             System.out.println(question);
             return question;
         }
-        if (currentCategory == "Sports") {
+        if (Objects.equals(currentCategory, "Sports")) {
             final Object question = sportsQuestions.removeFirst();
             System.out.println(question);
             return question;
         }
-        if (currentCategory == "Rock") {
+        if (Objects.equals(currentCategory, "Rock")) {
             final Object question = rockQuestions.removeFirst();
             System.out.println(question);
             return question;
