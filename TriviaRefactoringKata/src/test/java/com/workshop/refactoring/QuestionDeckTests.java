@@ -71,4 +71,15 @@ public class QuestionDeckTests {
         assertThat(deck.askQuestion(category), is(category + " Question 2"));
         assertThat(deck.askQuestion(category), is(category + " Question 3"));
     }
+
+    @Test
+    public void askMultipleQuestionsForMixedCategories() throws Exception {
+        final QuestionDeck deck = new QuestionDeck();
+        deck.fillQuestions();
+        assertThat(deck.askQuestion("Pop"), is("Pop Question 0"));
+        assertThat(deck.askQuestion("Sports"), is("Sports Question 0"));
+        assertThat(deck.askQuestion("Pop"), is("Pop Question 1"));
+        assertThat(deck.askQuestion("Sports"), is("Sports Question 1"));
+        assertThat(deck.askQuestion("Rock"), is("Rock Question 0"));
+    }
 }

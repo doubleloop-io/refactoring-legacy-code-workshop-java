@@ -22,6 +22,6 @@
     - [] move out System.out.println() calls
 - [] clean currentCategory method
     - [] explicit Rock places in currentCategory
-- [] test fillQuestions method
-- [] test askQuestion method
+- [X] test fillQuestions method
+- [X] test askQuestion method
 - [X] test currentCategory method
