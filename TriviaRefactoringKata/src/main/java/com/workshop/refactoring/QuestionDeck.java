@@ -68,7 +68,6 @@ public class QuestionDeck {
         if (Objects.equals(currentCategory, "Rock")) {
             question = rockQuestions.removeFirst();
         }
-        System.out.println(question);
         return question;
     }
 }
