@@ -48,7 +48,7 @@ public class QuestionDeckTests {
     public void firstQuestion(String category, Object expected) throws Exception {
         final QuestionDeck deck = new QuestionDeck();
         deck.fillQuestions();
-        final Object question = deck.askQuestion(category);
+        final Object question = deck.nextQuestion(category);
         assertThat(question, is(expected));
     }
 
@@ -57,7 +57,7 @@ public class QuestionDeckTests {
         final QuestionDeck deck = new QuestionDeck();
         deck.fillQuestions();
         try {
-            deck.askQuestion("boh");
+            deck.nextQuestion("boh");
             fail("expected exception to be thrown");
         } catch (Exception e) {
             assertThat(e, instanceOf(UnknownCategoryException.class));
@@ -72,23 +72,23 @@ public class QuestionDeckTests {
             "Sports",
             "Rock",
     })
-    public void askMultipleQuestionsForSameCategory(String category) throws Exception {
+    public void multipleQuestionsForSameCategory(String category) throws Exception {
         final QuestionDeck deck = new QuestionDeck();
         deck.fillQuestions();
-        assertThat(deck.askQuestion(category), is(category + " Question 0"));
-        assertThat(deck.askQuestion(category), is(category + " Question 1"));
-        assertThat(deck.askQuestion(category), is(category + " Question 2"));
-        assertThat(deck.askQuestion(category), is(category + " Question 3"));
+        assertThat(deck.nextQuestion(category), is(category + " Question 0"));
+        assertThat(deck.nextQuestion(category), is(category + " Question 1"));
+        assertThat(deck.nextQuestion(category), is(category + " Question 2"));
+        assertThat(deck.nextQuestion(category), is(category + " Question 3"));
     }
 
     @Test
-    public void askMultipleQuestionsForMixedCategories() throws Exception {
+    public void multipleQuestionsForMixedCategories() throws Exception {
         final QuestionDeck deck = new QuestionDeck();
         deck.fillQuestions();
-        assertThat(deck.askQuestion("Pop"), is("Pop Question 0"));
-        assertThat(deck.askQuestion("Sports"), is("Sports Question 0"));
-        assertThat(deck.askQuestion("Pop"), is("Pop Question 1"));
-        assertThat(deck.askQuestion("Sports"), is("Sports Question 1"));
-        assertThat(deck.askQuestion("Rock"), is("Rock Question 0"));
+        assertThat(deck.nextQuestion("Pop"), is("Pop Question 0"));
+        assertThat(deck.nextQuestion("Sports"), is("Sports Question 0"));
+        assertThat(deck.nextQuestion("Pop"), is("Pop Question 1"));
+        assertThat(deck.nextQuestion("Sports"), is("Sports Question 1"));
+        assertThat(deck.nextQuestion("Rock"), is("Rock Question 0"));
     }
 }

@@ -54,17 +54,17 @@ public class QuestionDeck {
         throw new OutOfBoardPlaceException(place);
     }
 
-    Object askQuestion(String currentCategory) {
+    Object nextQuestion(String category) {
         Object question = null;
         LinkedList questions = null;
 
-        if (Objects.equals(currentCategory, "Pop")) questions = this.popQuestions;
-        if (Objects.equals(currentCategory, "Science")) questions = this.scienceQuestions;
-        if (Objects.equals(currentCategory, "Sports")) questions = this.sportsQuestions;
-        if (Objects.equals(currentCategory, "Rock")) questions = this.rockQuestions;
+        if (Objects.equals(category, "Pop")) questions = this.popQuestions;
+        if (Objects.equals(category, "Science")) questions = this.scienceQuestions;
+        if (Objects.equals(category, "Sports")) questions = this.sportsQuestions;
+        if (Objects.equals(category, "Rock")) questions = this.rockQuestions;
 
         if (questions != null) question = questions.removeFirst();
-        else throw new UnknownCategoryException(currentCategory);
+        else throw new UnknownCategoryException(category);
 
         return question;
     }
