@@ -42,13 +42,21 @@ public class QuestionDeck {
     }
 
     void askQuestion(String currentCategory) {
-        if (currentCategory == "Pop")
-            System.out.println(popQuestions.removeFirst());
-        if (currentCategory == "Science")
-            System.out.println(scienceQuestions.removeFirst());
-        if (currentCategory == "Sports")
-            System.out.println(sportsQuestions.removeFirst());
-        if (currentCategory == "Rock")
-            System.out.println(rockQuestions.removeFirst());
+        if (currentCategory == "Pop") {
+            final Object question = popQuestions.removeFirst();
+            System.out.println(question);
+        }
+        if (currentCategory == "Science") {
+            final Object question = scienceQuestions.removeFirst();
+            System.out.println(question);
+        }
+        if (currentCategory == "Sports") {
+            final Object question = sportsQuestions.removeFirst();
+            System.out.println(question);
+        }
+        if (currentCategory == "Rock") {
+            final Object question = rockQuestions.removeFirst();
+            System.out.println(question);
+        }
     }
 }
