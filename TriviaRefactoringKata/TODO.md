@@ -18,7 +18,7 @@
 ## ON QUESTION DECK CLASS
 - [X] inline createRockQuestion?
 - [X] clean fillQuestions method
-- [] clean askQuestion method
+- [X] clean askQuestion method
     - [X] fix string comparison
     - [X] move out System.out.println() calls
 - [X] clean currentCategory method

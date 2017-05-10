@@ -55,7 +55,6 @@ public class QuestionDeck {
     }
 
     Object nextQuestion(String category) {
-        Object question = null;
         LinkedList questions = null;
 
         if (Objects.equals(category, "Pop")) questions = this.popQuestions;
@@ -63,9 +62,8 @@ public class QuestionDeck {
         if (Objects.equals(category, "Sports")) questions = this.sportsQuestions;
         if (Objects.equals(category, "Rock")) questions = this.rockQuestions;
 
-        if (questions != null) question = questions.removeFirst();
-        else throw new UnknownCategoryException(category);
+        if (questions != null) return questions.removeFirst();
 
-        return question;
+        throw new UnknownCategoryException(category);
     }
 }
