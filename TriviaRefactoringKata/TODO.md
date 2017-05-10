@@ -21,7 +21,7 @@
 - [] clean askQuestion method
     - [X] fix string comparison
     - [] move out System.out.println() calls
-- [] clean currentCategory method
+- [X] clean currentCategory method
     - [X] explicit Rock places in currentCategory
     - [X] throw exception for out of board place
 - [X] test fillQuestions method

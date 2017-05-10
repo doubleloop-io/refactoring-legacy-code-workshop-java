@@ -2,7 +2,6 @@ package com.workshop.refactoring;
 
 import junitparams.JUnitParamsRunner;
 import junitparams.Parameters;
-import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -22,7 +21,7 @@ public class QuestionDeckTests {
     })
     public void categoryForPlace(Integer place, String expected) throws Exception {
         final QuestionDeck deck = new QuestionDeck();
-        final String category = deck.currentCategory(place);
+        final String category = deck.categoryFor(place);
         assertThat(category, is(expected));
     }
 
@@ -31,7 +30,7 @@ public class QuestionDeckTests {
     public void outOfBoardPlace(Integer place) throws Exception {
         final QuestionDeck deck = new QuestionDeck();
         try {
-             deck.currentCategory(place);
+             deck.categoryFor(place);
             fail("expected exception to be thrown");
         } catch (Exception e) {
           assertThat(e, instanceOf(OutOfBoardPlaceException.class));
