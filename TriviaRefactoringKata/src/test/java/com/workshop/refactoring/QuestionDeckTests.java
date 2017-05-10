@@ -25,9 +25,10 @@ public class QuestionDeckTests {
     }
 
     @Test
-    public void outOfBoardPlace() throws Exception {
+    @Parameters({"12"})
+    public void outOfBoardPlace(Integer place) throws Exception {
         final QuestionDeck deck = new QuestionDeck();
-        final String category = deck.currentCategory(12);
+        final String category = deck.currentCategory(place);
         assertThat(category, is("Rock"));
     }
 }
