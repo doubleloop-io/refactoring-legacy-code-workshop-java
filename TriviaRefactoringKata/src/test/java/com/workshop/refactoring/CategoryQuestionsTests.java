@@ -3,6 +3,7 @@ package com.workshop.refactoring;
 import org.junit.Test;
 
 import java.util.Arrays;
+import java.util.Collections;
 
 import static org.hamcrest.Matchers.is;
 import static org.junit.Assert.assertThat;
@@ -20,5 +21,14 @@ public class CategoryQuestionsTests {
         final CategoryQuestions categoryQuestions = new CategoryQuestions("anything", Arrays.asList(1, 2));
         assertThat(categoryQuestions.isPlacedOn(3), is(false));
         assertThat(categoryQuestions.isPlacedOn(4), is(false));
+    }
+
+    @Test
+    public void askQuestions() throws Exception {
+        final CategoryQuestions categoryQuestions = new CategoryQuestions("anything", Collections.emptyList());
+        categoryQuestions.addQuestion("first");
+        categoryQuestions.addQuestion("second");
+        assertThat(categoryQuestions.nextQuestion(), is("first"));
+        assertThat(categoryQuestions.nextQuestion(), is("second"));
     }
 }
