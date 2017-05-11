@@ -8,7 +8,7 @@ public class CategoryQuestions {
 
     private final String name;
     private final LinkedList questions;
-    private List<Integer> places;
+    private final List<Integer> places;
 
     public CategoryQuestions(String name) {
         this.name = name;
@@ -34,6 +34,6 @@ public class CategoryQuestions {
     }
 
     public void placeOn(List<Integer> places) {
-        this.places = places;
+        this.places.addAll(places);
     }
 }
