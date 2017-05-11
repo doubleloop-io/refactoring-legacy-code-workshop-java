@@ -14,6 +14,10 @@ public class Game {
 
     public Game() {
         questionDeck = new QuestionDeck();
+        FillGameWithDefaultCategories();
+    }
+
+    private void FillGameWithDefaultCategories() {
         questionDeck.fillQuestions();
     }
 
