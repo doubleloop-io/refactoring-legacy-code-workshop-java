@@ -14,4 +14,11 @@ public class CategoryQuestionsTests {
         assertThat(categoryQuestions.contains(1), is(true));
         assertThat(categoryQuestions.contains(2), is(true));
     }
+
+    @Test
+    public void placeWithoutCategory() throws Exception {
+        final CategoryQuestions categoryQuestions = new CategoryQuestions("anything", Arrays.asList(1, 2));
+        assertThat(categoryQuestions.contains(3), is(false));
+        assertThat(categoryQuestions.contains(4), is(false));
+    }
 }
