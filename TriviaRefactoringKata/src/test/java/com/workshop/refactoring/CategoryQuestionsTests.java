@@ -5,8 +5,9 @@ import org.junit.Test;
 import java.util.Arrays;
 import java.util.Collections;
 
-import static org.hamcrest.Matchers.is;
+import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.assertThat;
+import static org.junit.Assert.fail;
 
 public class CategoryQuestionsTests {
     @Test
@@ -30,5 +31,20 @@ public class CategoryQuestionsTests {
         categoryQuestions.addQuestion("second");
         assertThat(categoryQuestions.nextQuestion(), is("first"));
         assertThat(categoryQuestions.nextQuestion(), is("second"));
+    }
+
+    @Test
+    public void tooManyQuestions() throws Exception {
+        final String category = "anything";
+        final CategoryQuestions categoryQuestions = new CategoryQuestions(category, Collections.emptyList());
+        categoryQuestions.addQuestion("first");
+        categoryQuestions.nextQuestion();
+        try {
+            categoryQuestions.nextQuestion();
+            fail("expected exception to be thrown");
+        } catch (Exception e) {
+            assertThat(e, instanceOf(EndOfQuestionsException.class));
+            assertThat(e.getMessage(), containsString(category));
+        }
     }
 }

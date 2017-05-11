@@ -28,6 +28,7 @@ public class CategoryQuestions {
     }
 
     public Object nextQuestion() {
+        if (questions.size() == 0) throw new EndOfQuestionsException(name);
         return questions.removeFirst();
     }
 }
