@@ -74,7 +74,6 @@ public class QuestionDeckTests {
         assertThat(deck.nextQuestion(category), is(category + " Question 3"));
     }
 
-    @Ignore
     @Test
     public void multipleQuestionsForSameCategory() throws Exception {
         final String category = "cat1";

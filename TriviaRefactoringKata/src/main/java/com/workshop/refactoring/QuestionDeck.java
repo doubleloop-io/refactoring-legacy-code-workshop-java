@@ -31,7 +31,7 @@ public class QuestionDeck {
         rock.placeOn(Arrays.asList(3, 7, 11));
         categories.put(rock.getName(), rock);
 
-        categories.values() .stream()
+        categories.values().stream()
                 .flatMap(c -> IntStream.range(0, 50)
                         .mapToObj(i -> new Pair<>(c, createQuestion(c.getName(), i))))
                 .forEach(p -> p.left.addQuestion(p.right));
@@ -54,15 +54,25 @@ public class QuestionDeck {
     }
 
     public void placeOn(String category, List<Integer> places) {
-        final CategoryQuestions categoryQuestions = new CategoryQuestions(category);
-        categories.put(category, categoryQuestions);
-        categoryQuestions.placeOn(places);
+        if (categories.containsKey(category)) {
+            final CategoryQuestions categoryQuestions = categories.get(category);
+            categoryQuestions.placeOn(places);
+        } else {
+            final CategoryQuestions categoryQuestions = new CategoryQuestions(category);
+            categories.put(category, categoryQuestions);
+            categoryQuestions.placeOn(places);
+        }
     }
 
     public void addQuestion(String category, String question) {
-        final CategoryQuestions categoryQuestions = new CategoryQuestions(category);
-        categories.put(category, categoryQuestions);
-        categoryQuestions.addQuestion(question);
+        if (categories.containsKey(category)) {
+            final CategoryQuestions categoryQuestions = categories.get(category);
+            categoryQuestions.addQuestion(question);
+        } else {
+            final CategoryQuestions categoryQuestions = new CategoryQuestions(category);
+            categories.put(category, categoryQuestions);
+            categoryQuestions.addQuestion(question);
+        }
     }
 
     private final class Pair<A, B> {
