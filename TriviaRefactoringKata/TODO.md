@@ -2,9 +2,9 @@
 
 ## CODE SMELLS THAT IMPACT CATEGORIES
 - [] Data clumps (categories fields | data)
-- [] Data clumps (single category w/ places fields | data)
+- [X] Data clumps (single category w/ places fields | data)
 - [] Shotgun surgery (logic | behaviour)
-- [] Primitive obsession (single field | data)
+- [X] Primitive obsession (single field | data)
 - [] Switch statement (dispatch logic | behaviour)
 
 ## ON GAME CLASS

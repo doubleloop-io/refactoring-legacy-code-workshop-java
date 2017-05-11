@@ -1,8 +1,6 @@
 package com.workshop.refactoring;
 
 import java.util.Arrays;
-import java.util.LinkedList;
-import java.util.List;
 import java.util.Objects;
 
 public class QuestionDeck {
@@ -12,10 +10,10 @@ public class QuestionDeck {
     private final CategoryQuestions rock;
 
     public QuestionDeck() {
-        pop = new CategoryQuestions("Pop", new LinkedList(), Arrays.asList(0, 4, 8));
-        science = new CategoryQuestions("Science", new LinkedList(), Arrays.asList(1, 5, 9));
-        sports = new CategoryQuestions("Sports", new LinkedList(), Arrays.asList(2, 6, 10));
-        rock = new CategoryQuestions("Rock", new LinkedList(), Arrays.asList(3, 7, 11));
+        pop = new CategoryQuestions("Pop", Arrays.asList(0, 4, 8));
+        science = new CategoryQuestions("Science", Arrays.asList(1, 5, 9));
+        sports = new CategoryQuestions("Sports", Arrays.asList(2, 6, 10));
+        rock = new CategoryQuestions("Rock", Arrays.asList(3, 7, 11));
     }
 
     private String createQuestion(String category, int index) {

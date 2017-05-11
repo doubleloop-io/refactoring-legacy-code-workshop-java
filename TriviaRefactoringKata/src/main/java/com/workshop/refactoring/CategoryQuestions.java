@@ -9,9 +9,9 @@ public class CategoryQuestions {
     private final LinkedList questions;
     private final List<Integer> places;
 
-    public CategoryQuestions(String name, LinkedList questions, List<Integer> places) {
+    public CategoryQuestions(String name, List<Integer> places) {
         this.name = name;
-        this.questions = questions;
+        this.questions = new LinkedList();
         this.places = places;
     }
 
