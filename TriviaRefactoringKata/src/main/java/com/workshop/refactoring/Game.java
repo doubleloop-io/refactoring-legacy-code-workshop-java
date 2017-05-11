@@ -1,6 +1,7 @@
 package com.workshop.refactoring;
 
 import java.util.ArrayList;
+import java.util.Arrays;
 
 public class Game {
     private final QuestionDeck questionDeck;
@@ -18,7 +19,10 @@ public class Game {
     }
 
     private void FillGameWithDefaultCategories() {
-        questionDeck.fillQuestions();
+        questionDeck.placeFiftyDummyQuestions("Pop", Arrays.asList(0, 4, 8));
+        questionDeck.placeFiftyDummyQuestions("Science", Arrays.asList(1, 5, 9));
+        questionDeck.placeFiftyDummyQuestions("Sports", Arrays.asList(2, 6, 10));
+        questionDeck.placeFiftyDummyQuestions("Rock", Arrays.asList(3, 7, 11));
     }
 
     public boolean isPlayable() {
