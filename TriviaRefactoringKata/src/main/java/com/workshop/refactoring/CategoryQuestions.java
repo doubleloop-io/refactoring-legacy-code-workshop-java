@@ -23,7 +23,7 @@ public class CategoryQuestions {
         questions.addLast(question);
     }
 
-    public boolean contains(int place) {
+    public boolean isPlacedOn(int place) {
         return places.contains(place);
     }
 

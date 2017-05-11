@@ -30,10 +30,10 @@ public class QuestionDeck {
     }
 
     String categoryFor(int place) {
-        if (pop.contains(place)) return pop.getName();
-        if (science.contains(place)) return science.getName();
-        if (sports.contains(place)) return sports.getName();
-        if (rock.contains(place)) return rock.getName();
+        if (pop.isPlacedOn(place)) return pop.getName();
+        if (science.isPlacedOn(place)) return science.getName();
+        if (sports.isPlacedOn(place)) return sports.getName();
+        if (rock.isPlacedOn(place)) return rock.getName();
 
         throw new OutOfBoardPlaceException(place);
     }
