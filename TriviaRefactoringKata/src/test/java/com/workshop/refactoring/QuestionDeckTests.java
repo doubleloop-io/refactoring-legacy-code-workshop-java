@@ -59,22 +59,6 @@ public class QuestionDeckTests {
     }
 
     @Test
-    @Parameters({
-            "Pop",
-            "Science",
-            "Sports",
-            "Rock",
-    })
-    public void multipleQuestionsForSameCategory_(String category) throws Exception {
-        final QuestionDeck deck = new QuestionDeck();
-        deck.fillQuestions();
-        assertThat(deck.nextQuestion(category), is(category + " Question 0"));
-        assertThat(deck.nextQuestion(category), is(category + " Question 1"));
-        assertThat(deck.nextQuestion(category), is(category + " Question 2"));
-        assertThat(deck.nextQuestion(category), is(category + " Question 3"));
-    }
-
-    @Test
     public void multipleQuestionsForSameCategory() throws Exception {
         final String category = "cat1";
         final QuestionDeck deck = new QuestionDeck();
