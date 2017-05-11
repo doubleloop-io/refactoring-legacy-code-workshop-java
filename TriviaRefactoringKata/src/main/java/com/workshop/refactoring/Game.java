@@ -29,8 +29,12 @@ public class Game {
 
     private void placeFiftyDummyQuestion(String category, List<Integer> places) {
         questionDeck.placeOn(category, places);
-        IntStream.range(0, 50).mapToObj(x -> questionDeck.createDummyQuestion(category, x))
+        IntStream.range(0, 50).mapToObj(x -> createDummyQuestion(category, x))
                 .forEach(x -> questionDeck.addQuestion(category, x));
+    }
+
+    private String createDummyQuestion(String category, int x) {
+        return questionDeck.createDummyQuestion(category, x);
     }
 
     public boolean isPlayable() {
