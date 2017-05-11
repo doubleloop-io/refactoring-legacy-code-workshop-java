@@ -54,25 +54,22 @@ public class QuestionDeck {
     }
 
     public void placeOn(String category, List<Integer> places) {
-        if (categories.containsKey(category)) {
-            final CategoryQuestions categoryQuestions = categories.get(category);
-            categoryQuestions.placeOn(places);
-        } else {
-            final CategoryQuestions categoryQuestions = new CategoryQuestions(category);
-            categories.put(category, categoryQuestions);
-            categoryQuestions.placeOn(places);
-        }
+        getOrAdd(category).placeOn(places);
     }
 
     public void addQuestion(String category, String question) {
+        getOrAdd(category).addQuestion(question);
+    }
+
+    private CategoryQuestions getOrAdd(String category) {
+        CategoryQuestions categoryQuestions;
         if (categories.containsKey(category)) {
-            final CategoryQuestions categoryQuestions = categories.get(category);
-            categoryQuestions.addQuestion(question);
+            categoryQuestions = categories.get(category);
         } else {
-            final CategoryQuestions categoryQuestions = new CategoryQuestions(category);
+            categoryQuestions = new CategoryQuestions(category);
             categories.put(category, categoryQuestions);
-            categoryQuestions.addQuestion(question);
         }
+        return categoryQuestions;
     }
 
     private final class Pair<A, B> {
