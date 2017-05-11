@@ -1,6 +1,8 @@
 package com.workshop.refactoring;
 
 import java.util.*;
+import java.util.function.Predicate;
+import java.util.function.Supplier;
 import java.util.stream.IntStream;
 
 public class QuestionDeck {
@@ -38,18 +40,12 @@ public class QuestionDeck {
     }
 
     String categoryFor(int place) {
-        return categories.values().stream()
-                .filter(c -> c.isPlacedOn(place))
-                .findFirst()
-                .orElseThrow(() -> new UndefinedCategoryException(place))
+        return findCategoryOrThrow(c -> c.isPlacedOn(place), () -> new UndefinedCategoryException(place))
                 .getName();
     }
 
     Object nextQuestion(String category) {
-        return categories.values().stream()
-                .filter(c -> Objects.equals(category, c.getName()))
-                .findFirst()
-                .orElseThrow(() -> new UnknownCategoryException(category))
+        return findCategoryOrThrow(c -> Objects.equals(category, c.getName()), () -> new UnknownCategoryException(category))
                 .nextQuestion();
     }
 
@@ -70,6 +66,13 @@ public class QuestionDeck {
             categories.put(category, categoryQuestions);
         }
         return categoryQuestions;
+    }
+
+    private <X extends RuntimeException> CategoryQuestions findCategoryOrThrow(Predicate<CategoryQuestions> predicate, Supplier<? extends X> exceptionSupplier) {
+        return categories.values().stream()
+                .filter(predicate)
+                .findFirst()
+                .orElseThrow(exceptionSupplier);
     }
 
     private final class Pair<A, B> {
