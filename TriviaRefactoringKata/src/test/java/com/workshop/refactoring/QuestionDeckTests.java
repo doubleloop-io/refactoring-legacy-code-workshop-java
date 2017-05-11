@@ -15,20 +15,6 @@ import static org.junit.Assert.fail;
 public class QuestionDeckTests {
 
     @Test
-    @Parameters({
-            "0,Pop", "4,Pop", "8,Pop",
-            "1,Science", "5,Science", "9,Science",
-            "2,Sports", "6,Sports", "10,Sports",
-            "3,Rock", "7,Rock", "11,Rock",
-    })
-    public void categoryForPlace_(Integer place, String expected) throws Exception {
-        final QuestionDeck deck = new QuestionDeck();
-        deck.fillQuestions();
-        final String category = deck.categoryFor(place);
-        assertThat(category, is(expected));
-    }
-
-    @Test
     public void categoryForPlace() throws Exception {
         final QuestionDeck deck = new QuestionDeck();
         deck.placeOn("something", Arrays.asList(1,2));
