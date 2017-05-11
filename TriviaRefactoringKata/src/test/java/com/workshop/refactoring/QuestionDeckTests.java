@@ -21,6 +21,7 @@ public class QuestionDeckTests {
     })
     public void categoryForPlace(Integer place, String expected) throws Exception {
         final QuestionDeck deck = new QuestionDeck();
+        deck.fillQuestions();
         final String category = deck.categoryFor(place);
         assertThat(category, is(expected));
     }
@@ -29,6 +30,7 @@ public class QuestionDeckTests {
     @Parameters({"12", "555", "-1", "" + Integer.MAX_VALUE})
     public void outOfBoardPlace(Integer place) throws Exception {
         final QuestionDeck deck = new QuestionDeck();
+        deck.fillQuestions();
         try {
             deck.categoryFor(place);
             fail("expected exception to be thrown");
