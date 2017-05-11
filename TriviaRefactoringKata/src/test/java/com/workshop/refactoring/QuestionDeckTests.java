@@ -5,6 +5,8 @@ import junitparams.Parameters;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
+import java.util.Arrays;
+
 import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.fail;
@@ -19,11 +21,19 @@ public class QuestionDeckTests {
             "2,Sports", "6,Sports", "10,Sports",
             "3,Rock", "7,Rock", "11,Rock",
     })
-    public void categoryForPlace(Integer place, String expected) throws Exception {
+    public void categoryForPlace_(Integer place, String expected) throws Exception {
         final QuestionDeck deck = new QuestionDeck();
         deck.fillQuestions();
         final String category = deck.categoryFor(place);
         assertThat(category, is(expected));
+    }
+
+    @Test
+    public void categoryForPlace() throws Exception {
+        final QuestionDeck deck = new QuestionDeck();
+        deck.placeOn("something", Arrays.asList(1,2));
+        final String category = deck.categoryFor(2);
+        assertThat(category, is("something"));
     }
 
     @Test

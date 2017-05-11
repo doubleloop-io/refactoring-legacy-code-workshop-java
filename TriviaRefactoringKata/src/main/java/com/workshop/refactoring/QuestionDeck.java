@@ -2,6 +2,7 @@ package com.workshop.refactoring;
 
 import java.util.ArrayList;
 import java.util.Arrays;
+import java.util.List;
 import java.util.Objects;
 import java.util.stream.IntStream;
 
@@ -53,6 +54,12 @@ public class QuestionDeck {
                 .findFirst()
                 .orElseThrow(() -> new UnknownCategoryException(category))
                 .nextQuestion();
+    }
+
+    public void placeOn(String category, List<Integer> places) {
+        final CategoryQuestions categoryQuestions = new CategoryQuestions(category);
+        categories.add(categoryQuestions);
+        categoryQuestions.placeOn(places);
     }
 
     private final class Pair<A, B> {
