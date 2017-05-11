@@ -37,20 +37,6 @@ public class QuestionDeckTests {
     }
 
     @Test
-    @Parameters({
-            "Pop, Pop Question 0",
-            "Science, Science Question 0",
-            "Sports, Sports Question 0",
-            "Rock, Rock Question 0",
-    })
-    public void firstQuestion(String category, Object expected) throws Exception {
-        final QuestionDeck deck = new QuestionDeck();
-        deck.fillQuestions();
-        final Object question = deck.nextQuestion(category);
-        assertThat(question, is(expected));
-    }
-
-    @Test
     public void firstQuestion() throws Exception {
         final QuestionDeck deck = new QuestionDeck();
         deck.addQuestion("something", "a question");
