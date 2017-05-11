@@ -7,10 +7,10 @@ import java.util.Objects;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
 
-public class QuestionDeck {
+class QuestionDeck {
     private final Map<String, CategoryQuestions> categories;
 
-    public QuestionDeck() {
+    QuestionDeck() {
         categories = new HashMap<>();
     }
 
@@ -24,11 +24,11 @@ public class QuestionDeck {
                 .nextQuestion();
     }
 
-    public void placeOn(String category, List<Integer> places) {
+    void placeOn(String category, List<Integer> places) {
         getOrAdd(category).placeOn(places);
     }
 
-    public void addQuestion(String category, String question) {
+    void addQuestion(String category, String question) {
         getOrAdd(category).addQuestion(question);
     }
 
