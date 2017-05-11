@@ -17,29 +17,21 @@ public class QuestionDeck {
     }
 
     void fillQuestions() {
-        CategoryQuestions pop = new CategoryQuestions("Pop");
-        categories.put(pop.getName(), pop);
-        pop.placeOn(Arrays.asList(0, 4, 8));
-        IntStream.range(0,50).mapToObj(x -> createQuestion(pop.getName(), x))
-                .forEach(pop::addQuestion);
+        placeOn("Pop", Arrays.asList(0, 4, 8));
+        IntStream.range(0, 50).mapToObj(x -> createQuestion("Pop", x))
+                .forEach(x -> addQuestion("Pop", x));
 
-        CategoryQuestions science = new CategoryQuestions("Science");
-        categories.put(science.getName(), science);
-        science.placeOn(Arrays.asList(1, 5, 9));
-        IntStream.range(0,50).mapToObj(x -> createQuestion(science.getName(), x))
-                .forEach(science::addQuestion);
+        placeOn("Science", Arrays.asList(1, 5, 9));
+        IntStream.range(0, 50).mapToObj(x -> createQuestion("Science", x))
+                .forEach(x -> addQuestion("Science", x));
 
-        CategoryQuestions sports = new CategoryQuestions("Sports");
-        categories.put(sports.getName(), sports);
-        sports.placeOn(Arrays.asList(2, 6, 10));
-        IntStream.range(0,50).mapToObj(x -> createQuestion(sports.getName(), x))
-                .forEach(sports::addQuestion);
+        placeOn("Sports", Arrays.asList(2, 6, 10));
+        IntStream.range(0, 50).mapToObj(x -> createQuestion("Sports", x))
+                .forEach(x -> addQuestion("Sports", x));
 
-        CategoryQuestions rock = new CategoryQuestions("Rock");
-        rock.placeOn(Arrays.asList(3, 7, 11));
-        categories.put(rock.getName(), rock);
-        IntStream.range(0,50).mapToObj(x -> createQuestion(rock.getName(), x))
-                .forEach(rock::addQuestion);
+        placeOn("Rock", Arrays.asList(3, 7, 11));
+        IntStream.range(0, 50).mapToObj(x -> createQuestion("Rock", x))
+                .forEach(x -> addQuestion("Rock", x));
     }
 
     String categoryFor(int place) {
