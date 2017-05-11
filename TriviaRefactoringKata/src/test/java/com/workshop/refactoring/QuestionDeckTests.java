@@ -1,10 +1,6 @@
 package com.workshop.refactoring;
 
-import junitparams.JUnitParamsRunner;
-import junitparams.Parameters;
-import org.junit.Ignore;
 import org.junit.Test;
-import org.junit.runner.RunWith;
 
 import java.util.Arrays;
 
@@ -12,13 +8,12 @@ import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.assertThat;
 import static org.junit.Assert.fail;
 
-@RunWith(JUnitParamsRunner.class)
 public class QuestionDeckTests {
 
     @Test
     public void placeWithCategory() throws Exception {
         final QuestionDeck deck = new QuestionDeck();
-        deck.placeOn("something", Arrays.asList(1,2));
+        deck.placeOn("something", Arrays.asList(1, 2));
         final String category = deck.categoryFor(2);
         assertThat(category, is("something"));
     }
@@ -27,7 +22,7 @@ public class QuestionDeckTests {
     public void placeWithoutCategory() throws Exception {
         final Integer place = 3;
         final QuestionDeck deck = new QuestionDeck();
-        deck.placeOn("anything", Arrays.asList(1,2));
+        deck.placeOn("anything", Arrays.asList(1, 2));
         try {
             deck.categoryFor(place);
             fail("expected exception to be thrown");
@@ -71,11 +66,13 @@ public class QuestionDeckTests {
     @Test
     public void multipleQuestionsForMixedCategories() throws Exception {
         final QuestionDeck deck = new QuestionDeck();
-        deck.fillQuestions();
-        assertThat(deck.nextQuestion("Pop"), is("Pop Question 0"));
-        assertThat(deck.nextQuestion("Sports"), is("Sports Question 0"));
-        assertThat(deck.nextQuestion("Pop"), is("Pop Question 1"));
-        assertThat(deck.nextQuestion("Sports"), is("Sports Question 1"));
-        assertThat(deck.nextQuestion("Rock"), is("Rock Question 0"));
+        deck.addQuestion("cat1", "foo");
+        deck.addQuestion("cat1", "bar");
+        deck.addQuestion("cat2", "alpha");
+        deck.addQuestion("cat3", "beta");
+        assertThat(deck.nextQuestion("cat1"), is("foo"));
+        assertThat(deck.nextQuestion("cat3"), is("beta"));
+        assertThat(deck.nextQuestion("cat2"), is("alpha"));
+        assertThat(deck.nextQuestion("cat1"), is("bar"));
     }
 }
