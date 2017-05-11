@@ -47,7 +47,7 @@ public class QuestionDeckTests {
     @Test
     public void questionForUnknownCategory() throws Exception {
         final QuestionDeck deck = new QuestionDeck();
-        deck.fillQuestions();
+        deck.addQuestion("something", "a question");
         try {
             deck.nextQuestion("boh");
             fail("expected exception to be thrown");
