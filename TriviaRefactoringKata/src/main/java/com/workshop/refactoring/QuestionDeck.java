@@ -17,10 +17,12 @@ public class QuestionDeck {
 
     private final LinkedList rockQuestions;
     private final List<Integer> rockPlaces;
+    private final CategoryQuestions pop;
 
     public QuestionDeck() {
         popQuestions = new LinkedList();
         popPlaces = Arrays.asList(0, 4, 8);
+        pop = new CategoryQuestions("Pop", new LinkedList(), Arrays.asList(0, 4, 8));
 
         scienceQuestions = new LinkedList();
         sciencePlaces = Arrays.asList(1, 5, 9);
@@ -38,6 +40,8 @@ public class QuestionDeck {
 
     void fillQuestions() {
         for (int i = 0; i < 50; i++) {
+            pop.addQuestion(createQuestion(pop.getName(), i));
+
             popQuestions.addLast(createQuestion("Pop", i));
             scienceQuestions.addLast(createQuestion("Science", i));
             sportsQuestions.addLast(createQuestion("Sports", i));
@@ -46,6 +50,8 @@ public class QuestionDeck {
     }
 
     String categoryFor(int place) {
+        if (pop.contains(place)) return pop.getName();
+
         if (popPlaces.contains(place)) return "Pop";
         if (sciencePlaces.contains(place)) return "Science";
         if (sportsPlaces.contains(place)) return "Sports";
@@ -56,6 +62,8 @@ public class QuestionDeck {
 
     Object nextQuestion(String category) {
         LinkedList questions = null;
+
+        if (Objects.equals(category, pop.getName())) return pop.nextQuestion();
 
         if (Objects.equals(category, "Pop")) questions = this.popQuestions;
         if (Objects.equals(category, "Science")) questions = this.scienceQuestions;
