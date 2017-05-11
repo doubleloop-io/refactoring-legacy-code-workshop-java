@@ -1,5 +1,6 @@
 package com.workshop.refactoring;
 
+import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Objects;
 
@@ -8,6 +9,7 @@ public class QuestionDeck {
     private final CategoryQuestions science;
     private final CategoryQuestions sports;
     private final CategoryQuestions rock;
+    private final ArrayList<CategoryQuestions> categories;
 
     public QuestionDeck() {
         pop = new CategoryQuestions("Pop");
@@ -18,6 +20,12 @@ public class QuestionDeck {
         sports.placeOn(Arrays.asList(2, 6, 10));
         rock = new CategoryQuestions("Rock");
         rock.placeOn(Arrays.asList(3, 7, 11));
+
+        categories = new ArrayList<>();
+        categories.add(pop);
+        categories.add(science);
+        categories.add(sports);
+        categories.add(rock);
     }
 
     private String createQuestion(String category, int index) {
