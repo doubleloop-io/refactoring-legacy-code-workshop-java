@@ -7,7 +7,7 @@ public class CategoryQuestions {
 
     private final String name;
     private final LinkedList questions;
-    private final List<Integer> places;
+    private List<Integer> places;
 
     public CategoryQuestions(String name, List<Integer> places) {
         this.name = name;
@@ -30,5 +30,9 @@ public class CategoryQuestions {
     public Object nextQuestion() {
         if (questions.size() == 0) throw new EndOfQuestionsException(name);
         return questions.removeFirst();
+    }
+
+    public void placeOn(List<Integer> places) {
+        this.places = places;
     }
 }

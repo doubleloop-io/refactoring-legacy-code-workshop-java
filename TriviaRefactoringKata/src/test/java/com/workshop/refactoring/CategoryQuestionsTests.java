@@ -10,9 +10,11 @@ import static org.junit.Assert.assertThat;
 import static org.junit.Assert.fail;
 
 public class CategoryQuestionsTests {
+
     @Test
     public void placeWithCategory() throws Exception {
         final CategoryQuestions categoryQuestions = new CategoryQuestions("anything", Arrays.asList(1, 2));
+        categoryQuestions.placeOn(Arrays.asList(1, 2));
         assertThat(categoryQuestions.isPlacedOn(1), is(true));
         assertThat(categoryQuestions.isPlacedOn(2), is(true));
     }
@@ -20,6 +22,7 @@ public class CategoryQuestionsTests {
     @Test
     public void placeWithoutCategory() throws Exception {
         final CategoryQuestions categoryQuestions = new CategoryQuestions("anything", Arrays.asList(1, 2));
+        categoryQuestions.placeOn(Arrays.asList(1, 2));
         assertThat(categoryQuestions.isPlacedOn(3), is(false));
         assertThat(categoryQuestions.isPlacedOn(4), is(false));
     }
