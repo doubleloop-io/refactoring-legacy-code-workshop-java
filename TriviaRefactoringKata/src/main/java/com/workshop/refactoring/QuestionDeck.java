@@ -6,9 +6,6 @@ import java.util.List;
 import java.util.Objects;
 
 public class QuestionDeck {
-    private final LinkedList popQuestions;
-    private final List<Integer> popPlaces;
-
     private final LinkedList scienceQuestions;
     private final List<Integer> sciencePlaces;
 
@@ -20,8 +17,6 @@ public class QuestionDeck {
     private final CategoryQuestions pop;
 
     public QuestionDeck() {
-        popQuestions = new LinkedList();
-        popPlaces = Arrays.asList(0, 4, 8);
         pop = new CategoryQuestions("Pop", new LinkedList(), Arrays.asList(0, 4, 8));
 
         scienceQuestions = new LinkedList();
@@ -42,7 +37,6 @@ public class QuestionDeck {
         for (int i = 0; i < 50; i++) {
             pop.addQuestion(createQuestion(pop.getName(), i));
 
-            popQuestions.addLast(createQuestion("Pop", i));
             scienceQuestions.addLast(createQuestion("Science", i));
             sportsQuestions.addLast(createQuestion("Sports", i));
             rockQuestions.addLast(createQuestion("Rock", i));
@@ -52,7 +46,6 @@ public class QuestionDeck {
     String categoryFor(int place) {
         if (pop.contains(place)) return pop.getName();
 
-        if (popPlaces.contains(place)) return "Pop";
         if (sciencePlaces.contains(place)) return "Science";
         if (sportsPlaces.contains(place)) return "Sports";
         if (rockPlaces.contains(place)) return "Rock";
@@ -65,7 +58,6 @@ public class QuestionDeck {
 
         if (Objects.equals(category, pop.getName())) return pop.nextQuestion();
 
-        if (Objects.equals(category, "Pop")) questions = this.popQuestions;
         if (Objects.equals(category, "Science")) questions = this.scienceQuestions;
         if (Objects.equals(category, "Sports")) questions = this.sportsQuestions;
         if (Objects.equals(category, "Rock")) questions = this.rockQuestions;
