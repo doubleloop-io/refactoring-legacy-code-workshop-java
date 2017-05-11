@@ -3,7 +3,6 @@ package com.workshop.refactoring;
 import org.junit.Test;
 
 import java.util.Arrays;
-import java.util.Collections;
 
 import static org.hamcrest.Matchers.*;
 import static org.junit.Assert.assertThat;
@@ -13,7 +12,7 @@ public class CategoryQuestionsTests {
 
     @Test
     public void placeWithCategory() throws Exception {
-        final CategoryQuestions categoryQuestions = new CategoryQuestions("anything", Arrays.asList(1, 2));
+        final CategoryQuestions categoryQuestions = new CategoryQuestions("anything");
         categoryQuestions.placeOn(Arrays.asList(1, 2));
         assertThat(categoryQuestions.isPlacedOn(1), is(true));
         assertThat(categoryQuestions.isPlacedOn(2), is(true));
@@ -21,7 +20,7 @@ public class CategoryQuestionsTests {
 
     @Test
     public void placeWithoutCategory() throws Exception {
-        final CategoryQuestions categoryQuestions = new CategoryQuestions("anything", Arrays.asList(1, 2));
+        final CategoryQuestions categoryQuestions = new CategoryQuestions("anything");
         categoryQuestions.placeOn(Arrays.asList(1, 2));
         assertThat(categoryQuestions.isPlacedOn(3), is(false));
         assertThat(categoryQuestions.isPlacedOn(4), is(false));
@@ -29,7 +28,7 @@ public class CategoryQuestionsTests {
 
     @Test
     public void askQuestions() throws Exception {
-        final CategoryQuestions categoryQuestions = new CategoryQuestions("anything", Collections.emptyList());
+        final CategoryQuestions categoryQuestions = new CategoryQuestions("anything");
         categoryQuestions.addQuestion("first");
         categoryQuestions.addQuestion("second");
         assertThat(categoryQuestions.nextQuestion(), is("first"));
@@ -39,7 +38,7 @@ public class CategoryQuestionsTests {
     @Test
     public void tooManyQuestions() throws Exception {
         final String category = "anything";
-        final CategoryQuestions categoryQuestions = new CategoryQuestions(category, Collections.emptyList());
+        final CategoryQuestions categoryQuestions = new CategoryQuestions(category);
         categoryQuestions.addQuestion("first");
         categoryQuestions.nextQuestion();
         try {
@@ -54,7 +53,7 @@ public class CategoryQuestionsTests {
     @Test
     public void exposeName() throws Exception {
         final String category = "me";
-        final CategoryQuestions categoryQuestions = new CategoryQuestions(category, Collections.emptyList());
+        final CategoryQuestions categoryQuestions = new CategoryQuestions(category);
         assertThat(categoryQuestions.getName(), is(category));
     }
 }

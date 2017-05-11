@@ -1,5 +1,6 @@
 package com.workshop.refactoring;
 
+import java.util.ArrayList;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -9,10 +10,10 @@ public class CategoryQuestions {
     private final LinkedList questions;
     private List<Integer> places;
 
-    public CategoryQuestions(String name, List<Integer> places) {
+    public CategoryQuestions(String name) {
         this.name = name;
         this.questions = new LinkedList();
-        this.places = places;
+        this.places = new ArrayList<>();
     }
 
     public String getName() {

@@ -10,10 +10,14 @@ public class QuestionDeck {
     private final CategoryQuestions rock;
 
     public QuestionDeck() {
-        pop = new CategoryQuestions("Pop", Arrays.asList(0, 4, 8));
-        science = new CategoryQuestions("Science", Arrays.asList(1, 5, 9));
-        sports = new CategoryQuestions("Sports", Arrays.asList(2, 6, 10));
-        rock = new CategoryQuestions("Rock", Arrays.asList(3, 7, 11));
+        pop = new CategoryQuestions("Pop");
+        pop.placeOn(Arrays.asList(0, 4, 8));
+        science = new CategoryQuestions("Science");
+        science.placeOn(Arrays.asList(1, 5, 9));
+        sports = new CategoryQuestions("Sports");
+        sports.placeOn(Arrays.asList(2, 6, 10));
+        rock = new CategoryQuestions("Rock");
+        rock.placeOn(Arrays.asList(3, 7, 11));
     }
 
     private String createQuestion(String category, int index) {
