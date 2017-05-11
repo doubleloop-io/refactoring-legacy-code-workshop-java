@@ -20,23 +20,26 @@ public class QuestionDeck {
         CategoryQuestions pop = new CategoryQuestions("Pop");
         categories.put(pop.getName(), pop);
         pop.placeOn(Arrays.asList(0, 4, 8));
+        IntStream.range(0,50).mapToObj(x -> createQuestion(pop.getName(), x))
+                .forEach(pop::addQuestion);
 
         CategoryQuestions science = new CategoryQuestions("Science");
         categories.put(science.getName(), science);
         science.placeOn(Arrays.asList(1, 5, 9));
+        IntStream.range(0,50).mapToObj(x -> createQuestion(science.getName(), x))
+                .forEach(science::addQuestion);
 
         CategoryQuestions sports = new CategoryQuestions("Sports");
         categories.put(sports.getName(), sports);
         sports.placeOn(Arrays.asList(2, 6, 10));
+        IntStream.range(0,50).mapToObj(x -> createQuestion(sports.getName(), x))
+                .forEach(sports::addQuestion);
 
         CategoryQuestions rock = new CategoryQuestions("Rock");
         rock.placeOn(Arrays.asList(3, 7, 11));
         categories.put(rock.getName(), rock);
-
-        categories.values().stream()
-                .flatMap(c -> IntStream.range(0, 50)
-                        .mapToObj(i -> new Pair<>(c, createQuestion(c.getName(), i))))
-                .forEach(p -> p.left.addQuestion(p.right));
+        IntStream.range(0,50).mapToObj(x -> createQuestion(rock.getName(), x))
+                .forEach(rock::addQuestion);
     }
 
     String categoryFor(int place) {
@@ -73,15 +76,5 @@ public class QuestionDeck {
                 .filter(predicate)
                 .findFirst()
                 .orElseThrow(exceptionSupplier);
-    }
-
-    private final class Pair<A, B> {
-        private final A left;
-        private final B right;
-
-        public Pair(A left, B right) {
-            this.left = left;
-            this.right = right;
-        }
     }
 }
