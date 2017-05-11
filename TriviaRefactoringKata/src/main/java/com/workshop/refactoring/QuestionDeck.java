@@ -12,25 +12,25 @@ public class QuestionDeck {
         categories = new HashMap<>();
     }
 
-    private String createQuestion(String category, int index) {
+    private String createDummyQuestion(String category, int index) {
         return category + " Question " + index;
     }
 
     void fillQuestions() {
         placeOn("Pop", Arrays.asList(0, 4, 8));
-        IntStream.range(0, 50).mapToObj(x -> createQuestion("Pop", x))
+        IntStream.range(0, 50).mapToObj(x -> createDummyQuestion("Pop", x))
                 .forEach(x -> addQuestion("Pop", x));
 
         placeOn("Science", Arrays.asList(1, 5, 9));
-        IntStream.range(0, 50).mapToObj(x -> createQuestion("Science", x))
+        IntStream.range(0, 50).mapToObj(x -> createDummyQuestion("Science", x))
                 .forEach(x -> addQuestion("Science", x));
 
         placeOn("Sports", Arrays.asList(2, 6, 10));
-        IntStream.range(0, 50).mapToObj(x -> createQuestion("Sports", x))
+        IntStream.range(0, 50).mapToObj(x -> createDummyQuestion("Sports", x))
                 .forEach(x -> addQuestion("Sports", x));
 
         placeOn("Rock", Arrays.asList(3, 7, 11));
-        IntStream.range(0, 50).mapToObj(x -> createQuestion("Rock", x))
+        IntStream.range(0, 50).mapToObj(x -> createDummyQuestion("Rock", x))
                 .forEach(x -> addQuestion("Rock", x));
     }
 
