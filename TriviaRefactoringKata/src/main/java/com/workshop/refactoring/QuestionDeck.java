@@ -6,17 +6,12 @@ import java.util.Map;
 import java.util.Objects;
 import java.util.function.Predicate;
 import java.util.function.Supplier;
-import java.util.stream.IntStream;
 
 public class QuestionDeck {
     private final Map<String, CategoryQuestions> categories;
 
     public QuestionDeck() {
         categories = new HashMap<>();
-    }
-
-    public String createDummyQuestion(String category, int index) {
-        return category + " Question " + index;
     }
 
     String categoryFor(int place) {

@@ -34,7 +34,7 @@ public class Game {
     }
 
     private String createDummyQuestion(String category, int x) {
-        return questionDeck.createDummyQuestion(category, x);
+        return category + " Question " + x;
     }
 
     public boolean isPlayable() {
