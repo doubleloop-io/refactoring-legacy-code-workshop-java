@@ -62,6 +62,12 @@ public class QuestionDeck {
         categoryQuestions.placeOn(places);
     }
 
+    public void addQuestion(String category, String question) {
+        final CategoryQuestions categoryQuestions = new CategoryQuestions(category);
+        categories.add(categoryQuestions);
+        categoryQuestions.addQuestion(question);
+    }
+
     private final class Pair<A, B> {
         private final A left;
         private final B right;
