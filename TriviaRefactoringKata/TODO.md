@@ -27,4 +27,4 @@
 - [X] test fillQuestions method
 - [X] test askQuestion method
 - [X] test currentCategory method
-- [] spread out add category, placeOn and addQuestion
+- [X] spread out add category, placeOn and addQuestion
