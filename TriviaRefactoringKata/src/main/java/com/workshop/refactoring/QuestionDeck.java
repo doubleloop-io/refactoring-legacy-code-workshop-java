@@ -44,7 +44,7 @@ public class QuestionDeck {
         return categories.stream()
                 .filter(c -> c.isPlacedOn(place))
                 .findFirst()
-                .orElseThrow(() -> new OutOfBoardPlaceException(place))
+                .orElseThrow(() -> new UndefinedCategoryException(place))
                 .getName();
     }
 

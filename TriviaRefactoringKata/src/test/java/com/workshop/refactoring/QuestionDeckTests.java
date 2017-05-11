@@ -15,7 +15,7 @@ import static org.junit.Assert.fail;
 public class QuestionDeckTests {
 
     @Test
-    public void categoryForPlace() throws Exception {
+    public void placeWithCategory() throws Exception {
         final QuestionDeck deck = new QuestionDeck();
         deck.placeOn("something", Arrays.asList(1,2));
         final String category = deck.categoryFor(2);
@@ -23,7 +23,7 @@ public class QuestionDeckTests {
     }
 
     @Test
-    public void outOfBoardPlace() throws Exception {
+    public void placeWithoutCategory() throws Exception {
         final Integer place = 3;
         final QuestionDeck deck = new QuestionDeck();
         deck.placeOn("anything", Arrays.asList(1,2));
@@ -31,7 +31,7 @@ public class QuestionDeckTests {
             deck.categoryFor(place);
             fail("expected exception to be thrown");
         } catch (Exception e) {
-            assertThat(e, instanceOf(OutOfBoardPlaceException.class));
+            assertThat(e, instanceOf(UndefinedCategoryException.class));
             assertThat(e.getMessage(), containsString(place.toString()));
         }
     }
