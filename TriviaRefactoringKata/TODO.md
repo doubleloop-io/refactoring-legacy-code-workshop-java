@@ -1,11 +1,11 @@
 # PREPARATORY REFACTORING TO HANDLE A NEW CATEGORY 
 
 ## CODE SMELLS THAT IMPACT CATEGORIES
-- [] Data clumps (categories fields | data)
+- [X] Data clumps (categories fields | data)
 - [X] Data clumps (single category w/ places fields | data)
-- [] Shotgun surgery (logic | behaviour)
+- [X] Shotgun surgery (logic | behaviour)
 - [X] Primitive obsession (single field | data)
-- [] Switch statement (dispatch logic | behaviour)
+- [X] Switch statement (dispatch logic | behaviour)
 
 ## ON GAME CLASS
 - [X] move category questions fields

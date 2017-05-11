@@ -5,20 +5,16 @@ import java.util.Arrays;
 import java.util.Objects;
 
 public class QuestionDeck {
-    private final CategoryQuestions pop;
-    private final CategoryQuestions science;
-    private final CategoryQuestions sports;
-    private final CategoryQuestions rock;
     private final ArrayList<CategoryQuestions> categories;
 
     public QuestionDeck() {
-        pop = new CategoryQuestions("Pop");
+        CategoryQuestions pop = new CategoryQuestions("Pop");
         pop.placeOn(Arrays.asList(0, 4, 8));
-        science = new CategoryQuestions("Science");
+        CategoryQuestions science = new CategoryQuestions("Science");
         science.placeOn(Arrays.asList(1, 5, 9));
-        sports = new CategoryQuestions("Sports");
+        CategoryQuestions sports = new CategoryQuestions("Sports");
         sports.placeOn(Arrays.asList(2, 6, 10));
-        rock = new CategoryQuestions("Rock");
+        CategoryQuestions rock = new CategoryQuestions("Rock");
         rock.placeOn(Arrays.asList(3, 7, 11));
 
         categories = new ArrayList<>();
@@ -33,28 +29,27 @@ public class QuestionDeck {
     }
 
     void fillQuestions() {
-        for (int i = 0; i < 50; i++) {
-            pop.addQuestion(createQuestion(pop.getName(), i));
-            science.addQuestion(createQuestion(science.getName(), i));
-            sports.addQuestion(createQuestion(sports.getName(), i));
-            rock.addQuestion(createQuestion(rock.getName(), i));
+        for (CategoryQuestions c : categories) {
+            for (int i = 0; i < 50; i++) {
+                c.addQuestion(createQuestion(c.getName(), i));
+            }
         }
     }
 
     String categoryFor(int place) {
-        if (pop.isPlacedOn(place)) return pop.getName();
-        if (science.isPlacedOn(place)) return science.getName();
-        if (sports.isPlacedOn(place)) return sports.getName();
-        if (rock.isPlacedOn(place)) return rock.getName();
+        for (CategoryQuestions c : categories) {
+            if (c.isPlacedOn(place))
+                return c.getName();
+        }
 
         throw new OutOfBoardPlaceException(place);
     }
 
     Object nextQuestion(String category) {
-        if (Objects.equals(category, pop.getName())) return pop.nextQuestion();
-        if (Objects.equals(category, science.getName())) return science.nextQuestion();
-        if (Objects.equals(category, sports.getName())) return sports.nextQuestion();
-        if (Objects.equals(category, rock.getName())) return rock.nextQuestion();
+        for (CategoryQuestions c : categories) {
+            if (Objects.equals(category, c.getName()))
+                return c.nextQuestion();
+        }
 
         throw new UnknownCategoryException(category);
     }
