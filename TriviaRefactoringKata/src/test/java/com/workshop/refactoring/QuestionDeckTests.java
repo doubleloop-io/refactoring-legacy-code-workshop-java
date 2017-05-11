@@ -2,6 +2,7 @@ package com.workshop.refactoring;
 
 import junitparams.JUnitParamsRunner;
 import junitparams.Parameters;
+import org.junit.Ignore;
 import org.junit.Test;
 import org.junit.runner.RunWith;
 
@@ -64,13 +65,24 @@ public class QuestionDeckTests {
             "Sports",
             "Rock",
     })
-    public void multipleQuestionsForSameCategory(String category) throws Exception {
+    public void multipleQuestionsForSameCategory_(String category) throws Exception {
         final QuestionDeck deck = new QuestionDeck();
         deck.fillQuestions();
         assertThat(deck.nextQuestion(category), is(category + " Question 0"));
         assertThat(deck.nextQuestion(category), is(category + " Question 1"));
         assertThat(deck.nextQuestion(category), is(category + " Question 2"));
         assertThat(deck.nextQuestion(category), is(category + " Question 3"));
+    }
+
+    @Ignore
+    @Test
+    public void multipleQuestionsForSameCategory() throws Exception {
+        final String category = "cat1";
+        final QuestionDeck deck = new QuestionDeck();
+        deck.addQuestion(category, "foo");
+        deck.addQuestion(category, "bar");
+        assertThat(deck.nextQuestion(category), is("foo"));
+        assertThat(deck.nextQuestion(category), is("bar"));
     }
 
     @Test
