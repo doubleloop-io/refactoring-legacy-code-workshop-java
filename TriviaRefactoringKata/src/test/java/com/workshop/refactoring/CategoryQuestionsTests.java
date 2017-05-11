@@ -47,4 +47,11 @@ public class CategoryQuestionsTests {
             assertThat(e.getMessage(), containsString(category));
         }
     }
+
+    @Test
+    public void exposeName() throws Exception {
+        final String category = "me";
+        final CategoryQuestions categoryQuestions = new CategoryQuestions(category, Collections.emptyList());
+        assertThat(categoryQuestions.getName(), is(category));
+    }
 }
