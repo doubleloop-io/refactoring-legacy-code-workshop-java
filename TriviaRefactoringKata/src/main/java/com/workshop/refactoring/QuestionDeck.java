@@ -3,6 +3,7 @@ package com.workshop.refactoring;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.Objects;
+import java.util.stream.IntStream;
 
 public class QuestionDeck {
     private final ArrayList<CategoryQuestions> categories;
@@ -29,28 +30,35 @@ public class QuestionDeck {
     }
 
     void fillQuestions() {
-        for (CategoryQuestions c : categories) {
-            for (int i = 0; i < 50; i++) {
-                c.addQuestion(createQuestion(c.getName(), i));
-            }
-        }
+        categories.stream()
+                .flatMap(c -> IntStream.range(0, 50)
+                        .mapToObj(i -> new Pair<>(c, createQuestion(c.getName(), i))))
+                .forEach(p -> p.left.addQuestion(p.right));
     }
 
     String categoryFor(int place) {
-        for (CategoryQuestions c : categories) {
-            if (c.isPlacedOn(place))
-                return c.getName();
-        }
-
-        throw new OutOfBoardPlaceException(place);
+        return categories.stream()
+                .filter(c -> c.isPlacedOn(place))
+                .findFirst()
+                .orElseThrow(() -> new OutOfBoardPlaceException(place))
+                .getName();
     }
 
     Object nextQuestion(String category) {
-        for (CategoryQuestions c : categories) {
-            if (Objects.equals(category, c.getName()))
-                return c.nextQuestion();
-        }
+        return categories.stream()
+                .filter(c -> Objects.equals(category,c.getName()))
+                .findFirst()
+                .orElseThrow(()-> new UnknownCategoryException(category))
+                .nextQuestion();
+    }
 
-        throw new UnknownCategoryException(category);
+    private final class Pair<A, B> {
+        private final A left;
+        private final B right;
+
+        public Pair(A left, B right) {
+            this.left = left;
+            this.right = right;
+        }
     }
 }
