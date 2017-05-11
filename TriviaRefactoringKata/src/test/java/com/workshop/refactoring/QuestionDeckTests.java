@@ -23,20 +23,6 @@ public class QuestionDeckTests {
     }
 
     @Test
-    @Parameters({"12", "555", "-1", "" + Integer.MAX_VALUE})
-    public void outOfBoardPlace_(Integer place) throws Exception {
-        final QuestionDeck deck = new QuestionDeck();
-        deck.fillQuestions();
-        try {
-            deck.categoryFor(place);
-            fail("expected exception to be thrown");
-        } catch (Exception e) {
-            assertThat(e, instanceOf(OutOfBoardPlaceException.class));
-            assertThat(e.getMessage(), containsString(place.toString()));
-        }
-    }
-
-    @Test
     public void outOfBoardPlace() throws Exception {
         final Integer place = 3;
         final QuestionDeck deck = new QuestionDeck();
