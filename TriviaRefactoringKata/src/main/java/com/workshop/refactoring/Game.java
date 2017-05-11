@@ -3,6 +3,7 @@ package com.workshop.refactoring;
 import java.util.ArrayList;
 import java.util.Arrays;
 import java.util.List;
+import java.util.stream.IntStream;
 
 public class Game {
     private final QuestionDeck questionDeck;
@@ -27,7 +28,9 @@ public class Game {
     }
 
     private void placeFiftyDummyQuestion(String category, List<Integer> places) {
-        questionDeck.placeFiftyDummyQuestions(category, places);
+        questionDeck.placeOn(category, places);
+        IntStream.range(0, 50).mapToObj(x -> questionDeck.createDummyQuestion(category, x))
+                .forEach(x -> questionDeck.addQuestion(category, x));
     }
 
     public boolean isPlayable() {

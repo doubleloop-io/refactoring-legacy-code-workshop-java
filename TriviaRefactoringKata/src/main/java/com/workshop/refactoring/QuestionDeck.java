@@ -15,14 +15,8 @@ public class QuestionDeck {
         categories = new HashMap<>();
     }
 
-    private String createDummyQuestion(String category, int index) {
+    public String createDummyQuestion(String category, int index) {
         return category + " Question " + index;
-    }
-
-    public void placeFiftyDummyQuestions(String category, List<Integer> places) {
-        placeOn(category, places);
-        IntStream.range(0, 50).mapToObj(x -> createDummyQuestion(category, x))
-                .forEach(x -> addQuestion(category, x));
     }
 
     String categoryFor(int place) {
