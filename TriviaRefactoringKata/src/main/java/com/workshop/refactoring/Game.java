@@ -1,7 +1,6 @@
 package com.workshop.refactoring;
 
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
 import java.util.stream.IntStream;
 
@@ -21,7 +20,8 @@ public class Game {
 
     void placeFiftyDummyQuestion(String category, List<Integer> places) {
         questionDeck.placeOn(category, places);
-        IntStream.range(0, 50).mapToObj(x -> createDummyQuestion(category, x))
+        IntStream.range(0, 50)
+                .mapToObj(x -> createDummyQuestion(category, x))
                 .forEach(x -> questionDeck.addQuestion(category, x));
     }
 
