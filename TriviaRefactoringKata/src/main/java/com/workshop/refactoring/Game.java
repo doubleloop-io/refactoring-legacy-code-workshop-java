@@ -19,14 +19,7 @@ public class Game {
         questionDeck = new QuestionDeck();
     }
 
-    void FillGameWithDefaultCategories() {
-        placeFiftyDummyQuestion("Pop", Arrays.asList(0, 4, 8));
-        placeFiftyDummyQuestion("Science", Arrays.asList(1, 5, 9));
-        placeFiftyDummyQuestion("Sports", Arrays.asList(2, 6, 10));
-        placeFiftyDummyQuestion("Rock", Arrays.asList(3, 7, 11));
-    }
-
-    private void placeFiftyDummyQuestion(String category, List<Integer> places) {
+    void placeFiftyDummyQuestion(String category, List<Integer> places) {
         questionDeck.placeOn(category, places);
         IntStream.range(0, 50).mapToObj(x -> createDummyQuestion(category, x))
                 .forEach(x -> questionDeck.addQuestion(category, x));

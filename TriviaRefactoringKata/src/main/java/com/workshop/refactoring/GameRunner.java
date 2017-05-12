@@ -1,5 +1,6 @@
 package com.workshop.refactoring;
 
+import java.util.Arrays;
 import java.util.Random;
 
 public class GameRunner {
@@ -13,7 +14,10 @@ public class GameRunner {
     public static void run(Random rand) {
         Game aGame = new Game();
 
-        aGame.FillGameWithDefaultCategories();
+        aGame.placeFiftyDummyQuestion("Pop", Arrays.asList(0, 4, 8));
+        aGame.placeFiftyDummyQuestion("Science", Arrays.asList(1, 5, 9));
+        aGame.placeFiftyDummyQuestion("Sports", Arrays.asList(2, 6, 10));
+        aGame.placeFiftyDummyQuestion("Rock", Arrays.asList(3, 7, 11));
 
         aGame.add("Chet");
         aGame.add("Pat");
