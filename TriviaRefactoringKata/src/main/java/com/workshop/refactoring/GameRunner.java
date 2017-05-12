@@ -15,7 +15,7 @@ public class GameRunner {
         Game aGame = new Game();
 
         aGame.placeFiftyDummyQuestion("Pop", Arrays.asList(0, 4, 8));
-        aGame.placeFiftyDummyQuestion("Science", Arrays.asList(1, 5, 9));
+        aGame.placeFiftyDummyQuestion("History", Arrays.asList(1, 5, 9));
         aGame.placeFiftyDummyQuestion("Sports", Arrays.asList(2, 6, 10));
         aGame.placeFiftyDummyQuestion("Rock", Arrays.asList(3, 7, 11));
 
