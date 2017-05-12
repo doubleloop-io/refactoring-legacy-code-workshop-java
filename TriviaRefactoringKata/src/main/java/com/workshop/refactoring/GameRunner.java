@@ -13,6 +13,8 @@ public class GameRunner {
     public static void run(Random rand) {
         Game aGame = new Game();
 
+        aGame.FillGameWithDefaultCategories();
+
         aGame.add("Chet");
         aGame.add("Pat");
         aGame.add("Sue");

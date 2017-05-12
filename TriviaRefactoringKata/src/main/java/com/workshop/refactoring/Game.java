@@ -17,10 +17,9 @@ public class Game {
 
     public Game() {
         questionDeck = new QuestionDeck();
-        FillGameWithDefaultCategories();
     }
 
-    private void FillGameWithDefaultCategories() {
+    void FillGameWithDefaultCategories() {
         placeFiftyDummyQuestion("Pop", Arrays.asList(0, 4, 8));
         placeFiftyDummyQuestion("Science", Arrays.asList(1, 5, 9));
         placeFiftyDummyQuestion("Sports", Arrays.asList(2, 6, 10));
