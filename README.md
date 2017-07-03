@@ -1,6 +1,6 @@
 # Refactoring Legacy Code
 
-Code and materials for the Refactoring Legacy Code Workshop Java edition.
+Code and materials for the [Refactoring Legacy Code Workshop](http://www.avanscoperta.it/it/training/refactoring-legacy-code/) Java edition.
 
 ## License
 
